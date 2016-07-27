@@ -15,4 +15,4 @@ hs_err_pid*
 
 #JetBrains IDE folder
 target/
-solutions/.idea
+cpp/.idea
