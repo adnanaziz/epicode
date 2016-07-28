@@ -7,6 +7,8 @@
 #include <string>
 #include <unordered_map>
 
+#include "test_toolkit/main_def.h"
+
 using std::boolalpha;
 using std::cout;
 using std::default_random_engine;
@@ -73,7 +75,7 @@ void SimpleTest() {
   assert(IsLetterConstructibleFromMagazine("", ""));
 }
 
-int main(int argc, char* argv[]) {
+int MAIN_FUNC(int argc, char* argv[]) {
   SimpleTest();
   default_random_engine gen((random_device())());
   string L, M;

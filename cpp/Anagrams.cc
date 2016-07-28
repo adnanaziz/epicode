@@ -9,6 +9,10 @@
 #include <string>
 #include <utility>
 #include <vector>
+#include <iterator>
+#include <algorithm>
+
+#include "main_def.h"
 
 using std::cout;
 using std::default_random_engine;
@@ -70,7 +74,7 @@ void SmallTest() {
   assert(result.size() == 3);
 }
 
-int main(int argc, char* argv[]) {
+int MAIN_FUNC(int argc, char* argv[]) {
   SmallTest();
   default_random_engine gen((random_device())());
   vector<string> dictionary;

@@ -8,11 +8,15 @@
 #include <iterator>
 #include <vector>
 
+#include "test_toolkit/main_def.h"
+
 using std::cout;
 using std::deque;
 using std::endl;
 using std::ostream_iterator;
 using std::vector;
+
+typedef vector<vector<int>> SudokuField; //FIXME(Kroilov) Include this typedef into book listing?
 
 bool SolvePartialSudoku(int, int, vector<vector<int>>*);
 bool ValidToAddVal(const vector<vector<int>>&, int, int, int);
@@ -86,7 +90,7 @@ bool ValidToAddVal(const vector<vector<int>>& partial_assignment, int i,
 }
 // @exclude
 
-int main(int argc, char* argv[]) {
+int MAIN_FUNC(int argc, char* argv[]) {
   vector<vector<int>> A(9, vector<int>(9, 0));
   A[0] = {0, 2, 6, 0, 0, 0, 8, 1, 0};
   A[1] = {3, 0, 0, 7, 0, 8, 0, 0, 6};

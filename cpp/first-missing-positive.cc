@@ -8,6 +8,8 @@
 #include <string>
 #include <vector>
 
+#include "test_toolkit/main_def.h"
+
 using std::cout;
 using std::default_random_engine;
 using std::endl;
@@ -33,6 +35,9 @@ int CheckAns(vector<int> A) {
   }
   return target;
 }
+
+
+//FIXME(KROILOV) double declaration of i
 
 // @include
 // A is passed by value argument, since we change it.
@@ -62,7 +67,7 @@ int FindFirstMissingPositive(vector<int> A) {
 }
 // @exclude
 
-int main(int argc, char *argv[]) {
+int MAIN_FUNC(int argc, char *argv[]) {
   default_random_engine gen((random_device())());
   for (int times = 0; times < 1000; ++times) {
     size_t n;

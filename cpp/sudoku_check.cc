@@ -5,6 +5,8 @@
 #include <deque>
 #include <vector>
 
+#include "test_toolkit/main_def.h"
+
 using std::deque;
 using std::vector;
 
@@ -62,7 +64,7 @@ bool HasDuplicate(const vector<vector<int>>& partial_assignment,
 }
 // @exclude
 
-int main(int argc, char* argv[]) {
+int MAIN_FUNC(int argc, char* argv[]) {
   vector<vector<int>> A(9, vector<int>(9, 0));
   A[0] = {0, 2, 6, 0, 0, 0, 8, 1, 0};
   A[1] = {3, 0, 0, 7, 0, 8, 0, 0, 6};

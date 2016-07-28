@@ -3,6 +3,12 @@
 #ifndef SOLUTIONS_TESTOPTIONS_H
 #define SOLUTIONS_TESTOPTIONS_H
 
+#ifdef MAIN_FUNC
+  #error "test-options.h must be included BEFORE the algorithm implementation"
+#endif
+
+#define EPI_TEST_TOOLKIT
+
 #include <ostream>
 #include <vector>
 #include <iomanip>

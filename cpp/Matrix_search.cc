@@ -7,6 +7,8 @@
 #include <random>
 #include <vector>
 
+#include "test_toolkit/main_def.h"
+
 using std::cout;
 using std::default_random_engine;
 using std::endl;
@@ -74,7 +76,7 @@ bool BruteForceSearch(const vector<vector<int>>& A, int x) {
   return false;
 }
 
-int main(int argc, char* argv[]) {
+int MAIN_FUNC(int argc, char* argv[]) {
   SimpleTest();
   default_random_engine gen((random_device())());
   for (int times = 0; times < 10000; ++times) {

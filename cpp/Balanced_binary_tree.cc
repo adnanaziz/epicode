@@ -7,6 +7,7 @@
 #include <utility>
 
 #include "./Binary_tree_prototype.h"
+#include "test_toolkit/main_def.h"
 
 using std::boolalpha;
 using std::cout;
@@ -54,7 +55,7 @@ BalancedStatusWithHeight CheckBalanced(
 }
 // @exclude
 
-int main(int argc, char* argv[]) {
+int MAIN_FUNC(int argc, char* argv[]) {
   //  balanced binary tree test
   //      3
   //    2   5

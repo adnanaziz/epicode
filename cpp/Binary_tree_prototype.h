@@ -5,6 +5,8 @@
 
 #include <memory>
 
+#include "test_toolkit/more_type_traits.h"
+
 using std::unique_ptr;
 
 // @include
@@ -14,4 +16,7 @@ struct BinaryTreeNode {
   unique_ptr<BinaryTreeNode<T>> left, right;
 };
 // @exclude
+
+REGISTER_TREE_TYPE(unique_ptr<BinaryTreeNode<T>>)
+
 #endif  // SOLUTIONS_BINARY_TREE_PROTOTYPE_H_

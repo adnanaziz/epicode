@@ -6,6 +6,8 @@
 #include <random>
 #include <string>
 
+#include "test_toolkit/main_def.h"
+
 using std::cout;
 using std::default_random_engine;
 using std::endl;
@@ -52,7 +54,7 @@ string RandIntString(int len) {
   return ret;
 }
 
-int main(int argc, char* argv[]) {
+int MAIN_FUNC(int argc, char* argv[]) {
   if (argc == 4) {
     string input(argv[1]);
     cout << ConvertBase(input, atoi(argv[2]), atoi(argv[3])) << endl;

@@ -8,6 +8,8 @@
 #include <random>
 #include <string>
 
+#include "test_toolkit/main_def.h"
+
 using std::cout;
 using std::default_random_engine;
 using std::endl;
@@ -47,7 +49,7 @@ static void SimpleTest() {
   assert(SquareRoot(numeric_limits<int>::max()) == 46340);
 }
 
-int main(int argc, char** argv) {
+int MAIN_FUNC(int argc, char** argv) {
   SimpleTest();
   int x;
   if (argc == 2) {

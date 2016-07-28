@@ -7,6 +7,8 @@
 #include <string>
 #include <vector>
 
+#include "test_toolkit/main_def.h"
+
 using std::cout;
 using std::default_random_engine;
 using std::endl;
@@ -51,7 +53,7 @@ void SmallTest() {
   assert(48 == GetMaxTrappedWater(A));
 }
 
-int main(int argc, char** argv) {
+int MAIN_FUNC(int argc, char** argv) {
   SmallTest();
   default_random_engine gen((random_device())());
   for (int times = 0; times < 1000; ++times) {
