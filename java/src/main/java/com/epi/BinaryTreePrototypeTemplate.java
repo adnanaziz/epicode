@@ -50,10 +50,13 @@ public class BinaryTreePrototypeTemplate {
     @Override
     public int hashCode() { return Objects.hash(data, left, right); }
     // clang-format on
-
     // Based on https://leetcode.com/faq/#binary-tree
     @Override
     public String toString() {
+      return toList().toString();
+    }
+
+    public List<Object> toList() {
       int nodeId = 0;
       List<Deque<BinaryTreeNode<T>>> levels = new ArrayList<>();
 
@@ -78,19 +81,19 @@ public class BinaryTreePrototypeTemplate {
         }
       }
 
-      List<String> result = new ArrayList<>();
-      result.add(this.data == null ? ("" + nodeId++) : this.data.toString());
+      List<Object> result = new ArrayList<>();
+      result.add(this.data == null ? (nodeId++) : this.data);
       for (int i = 0; i < levels.size() - 1; i++) {
         Deque<BinaryTreeNode<T>> thisLevel = levels.get(i);
         for (BinaryTreeNode<T> node : thisLevel) {
           result.add(node.left != null
-                         ? (node.left.data == null ? ("" + nodeId++)
-                                                   : node.left.data.toString())
-                         : "#");
+              ? (node.left.data == null ? (nodeId++)
+              : node.left.data)
+              : "#");
           result.add(node.right != null ? (node.right.data == null
-                                               ? ("" + nodeId++)
-                                               : node.right.data.toString())
-                                        : "#");
+              ? (nodeId++)
+              : node.right.data)
+              : "#");
         }
       }
 
@@ -103,16 +106,7 @@ public class BinaryTreePrototypeTemplate {
         }
       }
 
-      StringBuilder sb = new StringBuilder();
-      sb.append("{");
-      for (int i = 0; i < result.size() - numTrailingHashes; i++) {
-        sb.append(result.get(i));
-        if (i < result.size() - numTrailingHashes - 1) {
-          sb.append(",");
-        }
-      }
-      sb.append("}");
-      return sb.toString();
+      return result.subList(0, result.size() - numTrailingHashes);
     }
 
     private static void testToString() {

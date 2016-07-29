@@ -41,7 +41,7 @@ public class GassingUp {
     }
   }
 
-  private static final int MPG = 20;
+  public static final int MPG = 20;
 
   // gallons[i] is the amount of gas in city i, and distances[i] is the distance
   // city i to the next city.
