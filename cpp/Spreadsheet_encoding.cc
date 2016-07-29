@@ -5,6 +5,8 @@
 #include <random>
 #include <string>
 
+#include "test_toolkit/main_def.h"
+
 using std::cout;
 using std::default_random_engine;
 using std::endl;
@@ -39,7 +41,7 @@ void SimpleTest() {
   assert(27 == SSDecodeColID("AA"));
 }
 
-int main(int argc, char* argv[]) {
+int MAIN_FUNC(int argc, char* argv[]) {
   SimpleTest();
   default_random_engine gen((random_device())());
   if (argc == 2) {

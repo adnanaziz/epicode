@@ -8,6 +8,8 @@
 #include <sstream>
 #include <vector>
 
+#include "test_toolkit/main_def.h"
+
 using std::cout;
 using std::endl;
 using std::exception;
@@ -60,7 +62,7 @@ string ShortestEquivalentPath(const string& path) {
 }
 // @exclude
 
-int main(int argc, char* argv[]) {
+int MAIN_FUNC(int argc, char* argv[]) {
   assert(ShortestEquivalentPath("123/456") == string("123/456"));
   assert(ShortestEquivalentPath("/123/456") == string("/123/456"));
   assert(ShortestEquivalentPath("usr/lib/../bin/gcc") ==

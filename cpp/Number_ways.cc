@@ -5,6 +5,8 @@
 #include <random>
 #include <vector>
 
+#include "test_toolkit/main_def.h"
+
 using std::cout;
 using std::default_random_engine;
 using std::endl;
@@ -76,7 +78,7 @@ int CheckAns(int n, int k) {
   return table[n][k];
 }
 
-int main(int argc, char* argv[]) {
+int MAIN_FUNC(int argc, char* argv[]) {
   default_random_engine gen((random_device())());
   for (int times = 0; times < 1000; ++times) {
     int n, m;

@@ -5,6 +5,8 @@
 #include <stack>
 #include <string>
 
+#include "test_toolkit/main_def.h"
+
 using std::stack;
 using std::string;
 using std::stringstream;
@@ -44,7 +46,7 @@ int Eval(const string& RPN_expression) {
 }
 // @exclude
 
-int main(int argc, char* argv[]) {
+int MAIN_FUNC(int argc, char* argv[]) {
   assert(0 == Eval("2,-10,/"));
   assert(-5 == Eval("-10,2,/"));
   assert(5 == Eval("-10,-2,/"));
