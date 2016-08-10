@@ -1,7 +1,7 @@
 // Copyright (c) 2016 Elements of Programming Interviews. All rights reserved.
 
 #include "test_toolkit/test-options.h"
-#include "SPreadsheet_encoding.cc"
+#include "Spreadsheet_encoding.cc"
 
 
 void UnitTest(TestSentry::Ptr& sentry, const char* description,
