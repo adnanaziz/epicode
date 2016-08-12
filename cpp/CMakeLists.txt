@@ -3,9 +3,6 @@ project(solutions)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
-
-include_directories(test_toolkit)
-
 add_executable(JsonWriterTest test_toolkit/json-writer-test.cc)
 
 add_executable(0-1_knapsack 0-1_knapsack.cc)
