@@ -15,13 +15,19 @@ using std::swap;
 using std::uniform_int_distribution;
 using std::vector;
 
+// @pg_impl
 int ComputeNumberOfWaysToXY(int, int, vector<vector<int>>*);
-
+// @pg_end
+// @pg_skeleton
 // @include
 int NumberOfWays(int n, int m) {
+  // @pg_impl
   vector<vector<int>> number_of_ways(n, vector<int>(m, 0));
   return ComputeNumberOfWaysToXY(n - 1, m - 1, &number_of_ways);
+  // @pg_end
 }
+// @pg_end
+// @pg_impl
 
 int ComputeNumberOfWaysToXY(int x, int y,
                             vector<vector<int>>* number_of_ways_ptr) {
@@ -39,6 +45,7 @@ int ComputeNumberOfWaysToXY(int x, int y,
   }
   return number_of_ways[x][y];
 }
+// @pg_end
 // @exclude
 
 int ComputeNumberOfWaysSpaceEfficient(int n, int m) {
@@ -58,7 +65,7 @@ int ComputeNumberOfWaysSpaceEfficient(int n, int m) {
   }
   return A[m - 1];
 }
-
+// @pg_ignore
 int CheckAns(int n, int k) {
   vector<vector<int>> table(n + 1, vector<int>(k + 1));
   // Basic case: C(i, 0) = 1.
@@ -99,3 +106,4 @@ int MAIN_FUNC(int argc, char* argv[]) {
   }
   return 0;
 }
+// @pg_end

@@ -19,8 +19,10 @@ using std::stoul;
 using std::uniform_int_distribution;
 using std::vector;
 
+// @pg_skeleton
 // @include
 int GetMaxTrappedWater(const vector<int>& heights) {
+// @pg_impl
   int i = 0, j = heights.size() - 1, max_water = 0;
   while (i < j) {
     int width = j - i;
@@ -34,9 +36,11 @@ int GetMaxTrappedWater(const vector<int>& heights) {
     }
   }
   return max_water;
+// @pg_end
 }
 // @exclude
-
+// @pg_end
+// @pg_ignore
 // O(n^2) checking answer.
 int CheckAns(const vector<int>& heights) {
   int res = 0;
@@ -72,3 +76,4 @@ int MAIN_FUNC(int argc, char** argv) {
   }
   return 0;
 }
+// @pg_end

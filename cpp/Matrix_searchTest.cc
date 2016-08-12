@@ -1,7 +1,10 @@
 // Copyright (c) 2016 Elements of Programming Interviews. All rights reserved.
-
+// @pg_harness
 #include "test_toolkit/test-options.h"
+// @pg_ignore
 #include "Matrix_search.cc"
+// @pg_end
+// @pg_include Matrix_search.cc
 
 void UnitTest(TestSentry::Ptr& sentry, const char* description,
               const vector<vector<int>>& input, int x, bool expected) {
@@ -135,3 +138,4 @@ int main(int argc, char* argv[]) {
   DirectedTests(TestOptions(&cout));
   return 0;
 }
+// @pg_end

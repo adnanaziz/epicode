@@ -18,7 +18,7 @@ using std::string;
 using std::uniform_int_distribution;
 using std::unordered_map;
 using std::vector;
-
+// @pg_ignore
 string RandString(int len) {
   string ret;
   default_random_engine gen((random_device())());
@@ -29,10 +29,12 @@ string RandString(int len) {
   }
   return ret;
 }
-
+// @pg_end
+// @pg_skeleton
 // @include
 bool IsLetterConstructibleFromMagazine(const string& letter_text,
                                        const string& magazine_text) {
+// @pg_impl
   unordered_map<char, int> char_frequency_for_letter;
   // Compute the frequencies for all chars in letter_text.
   for (char c : letter_text) {
@@ -57,9 +59,11 @@ bool IsLetterConstructibleFromMagazine(const string& letter_text,
   // Empty char_frequency_for_letter means every char in letter_text can be
   // covered by a character in magazine_text.
   return char_frequency_for_letter.empty();
+// @pg_end
 }
 // @exclude
-
+// @pg_end
+// @pg_ignore
 void SimpleTest() {
   assert(!IsLetterConstructibleFromMagazine("123", "456"));
   assert(!IsLetterConstructibleFromMagazine("123", "12222222"));
@@ -91,3 +95,4 @@ int MAIN_FUNC(int argc, char* argv[]) {
   cout << boolalpha << IsLetterConstructibleFromMagazine(L, M) << endl;
   return 0;
 }
+// @pg_end

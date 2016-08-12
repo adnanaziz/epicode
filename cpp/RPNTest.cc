@@ -1,9 +1,12 @@
 // Copyright (c) 2016 Elements of Programming Interviews. All rights reserved.
-
+// @pg_harness
 #include <iostream>
 
 #include "test_toolkit/test-options.h"
+// @pg_ignore
 #include "RPN.cc"
+// @pg_end
+// @pg_include RPN.cc
 
 using std::cout;
 
@@ -40,3 +43,4 @@ int main(int argc, char* argv[]) {
   DirectedTests(TestOptions(&cout));
   return 0;
 }
+// @pg_end

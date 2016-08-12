@@ -13,7 +13,7 @@ using std::endl;
 using std::random_device;
 using std::string;
 using std::uniform_int_distribution;
-
+// @pg_ignore
 string RandString(int len) {
   default_random_engine gen((random_device())());
   string result;
@@ -23,17 +23,22 @@ string RandString(int len) {
   }
   return result;
 }
+// @pg_end
 
 // @include
+// @pg_skeleton
 int SSDecodeColID(const string& col) {
+  // @pg_impl
   int result = 0;
   for (char c : col) {
     result = result * 26 + c - 'A' + 1;
   }
   return result;
+  // @pg_end
 }
+// @pg_end
 // @exclude
-
+// @pg_ignore
 void SimpleTest() {
   assert(1 == SSDecodeColID("A"));
   assert(2 == SSDecodeColID("B"));
@@ -53,3 +58,4 @@ int MAIN_FUNC(int argc, char* argv[]) {
   }
   return 0;
 }
+// @pg_end

@@ -19,7 +19,9 @@ using std::string;
 using std::vector;
 
 // @include
+// @pg_skeleton
 string ShortestEquivalentPath(const string& path) {
+  // @pg_impl
   if (path.empty()) {
     throw invalid_argument("Empty string is not a valid path.");
   }
@@ -59,9 +61,11 @@ string ShortestEquivalentPath(const string& path) {
     }
   }
   return result;
+  // @pg_end
 }
+// @pg_end
 // @exclude
-
+// @pg_ignore
 int MAIN_FUNC(int argc, char* argv[]) {
   assert(ShortestEquivalentPath("123/456") == string("123/456"));
   assert(ShortestEquivalentPath("/123/456") == string("/123/456"));
@@ -99,3 +103,4 @@ int MAIN_FUNC(int argc, char* argv[]) {
   }
   return 0;
 }
+// @pg_end

@@ -17,12 +17,15 @@ using std::uniform_int_distribution;
 using std::vector;
 
 // @include
+// @pg_header
 const int kMPG = 20;
-
+// @pg_end
 // gallons[i] is the amount of gas in city i, and distances[i] is the distance
 // city i to the next city.
+// @pg_skeleton
 size_t FindAmpleCity(const vector<int>& gallons,
                      const vector<int>& distances) {
+// @pg_impl
   int remaining_gallons = 0;
   struct CityAndRemainingGas {
     int city = 0, remaining_gallons = 0;
@@ -36,9 +39,11 @@ size_t FindAmpleCity(const vector<int>& gallons,
     }
   }
   return city_remaining_gallons_pair.city;
+// @pg_end
 }
+// @pg_end
 // @exclude
-
+// @pg_ignore
 void CheckAns(const vector<int>& gallons, const vector<int>& distances,
               size_t c) {
   size_t s = c;
@@ -98,3 +103,4 @@ int MAIN_FUNC(int argc, char* argv[]) {
   }
   return 0;
 }
+// @pg_end

@@ -19,7 +19,9 @@ using std::stoi;
 using std::uniform_int_distribution;
 
 // @include
+// @pg_skeleton
 int SquareRoot(int k) {
+  // @pg_impl
   int left = 0, right = k;
   // Candidate interval [left, right] where everything before left has
   // square <= k, and everything after right has square > k.
@@ -33,9 +35,11 @@ int SquareRoot(int k) {
     }
   }
   return left - 1;
+  // @pg_end
 }
+// @pg_end
 // @exclude
-
+// @pg_ignore
 static void SimpleTest() {
   assert(SquareRoot(0) == 0);
   assert(SquareRoot(1) == 1);
@@ -68,3 +72,4 @@ int MAIN_FUNC(int argc, char** argv) {
   }
   return 0;
 }
+// @pg_end

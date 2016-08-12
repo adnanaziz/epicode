@@ -9,6 +9,7 @@
 
 using std::unique_ptr;
 
+// @pg_header
 // @include
 template <typename T>
 struct BinaryTreeNode {
@@ -16,6 +17,7 @@ struct BinaryTreeNode {
   unique_ptr<BinaryTreeNode<T>> left, right;
 };
 // @exclude
+// @pg_end
 
 REGISTER_TREE_TYPE(unique_ptr<BinaryTreeNode<T>>)
 

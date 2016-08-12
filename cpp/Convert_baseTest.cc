@@ -1,9 +1,10 @@
 // Copyright (c) 2016 Elements of Programming Interviews. All rights reserved.
-
+// @pg_harness
 #include "test_toolkit/test-options.h"
+// @pg_ignore
 #include "Convert_base.cc"
-
-string ConstructFromBase(int, int);
+// @pg_end
+// @pg_include Convert_base.cc
 
 void UnitTest(TestSentry::Ptr& sentry, const char* description,
               const string& number, int source_base, int target_base,
@@ -51,3 +52,4 @@ int main(int argc, char* argv[]) {
   DirectedTests(TestOptions(&cout));
   return 0;
 }
+// @pg_end

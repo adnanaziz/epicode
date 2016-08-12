@@ -15,8 +15,10 @@ using std::stoi;
 using std::string;
 using std::uniform_int_distribution;
 
+// @pg_skeleton
 // @include
 string SnakeString(const string& s) {
+  // @pg_impl
   string result;
   // Outputs the first row, i.e., s[1], s[5], s[9], ...
   for (int i = 1; i < s.size(); i += 4) {
@@ -31,9 +33,11 @@ string SnakeString(const string& s) {
     result += s[i];
   }
   return result;
+  // @pg_end
 }
 // @exclude
-
+// @pg_end
+// @pg_ignore
 string RandString(size_t len) {
   default_random_engine gen((random_device())());
   uniform_int_distribution<char> dis('A', 'Z');
@@ -61,3 +65,4 @@ int MAIN_FUNC(int argc, char** argv) {
   cout << SnakeString(s) << endl;
   return 0;
 }
+// @pg_end

@@ -19,7 +19,9 @@ using std::uniform_int_distribution;
 using std::vector;
 
 // @include
+// @pg_skeleton
 bool MatrixSearch(const vector<vector<int>>& A, int x) {
+  // @pg_impl
   int row = 0, col = A[0].size() - 1;  // Start from the top-right corner.
   // Keeps searching while there are unclassified rows and columns.
   while (row < A.size() && col >= 0) {
@@ -32,9 +34,11 @@ bool MatrixSearch(const vector<vector<int>>& A, int x) {
     }
   }
   return false;
+  // @pg_end
 }
+// @pg_end
 // @exclude
-
+// @pg_ignore
 static void SimpleTest() {
   vector<vector<int>> A = {{1}};
   assert(!MatrixSearch(A, 0));
@@ -104,3 +108,4 @@ int MAIN_FUNC(int argc, char* argv[]) {
   }
   return 0;
 }
+// @pg_end

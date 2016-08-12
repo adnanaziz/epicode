@@ -12,7 +12,9 @@ using std::string;
 using std::stringstream;
 
 // @include
+// @pg_skeleton
 int Eval(const string& RPN_expression) {
+  // @pg_impl
   stack<int> intermediate_results;
   stringstream ss(RPN_expression);
   string token;
@@ -43,9 +45,11 @@ int Eval(const string& RPN_expression) {
     }
   }
   return intermediate_results.top();
+  // @pg_end
 }
+// @pg_end
 // @exclude
-
+// @pg_ignore
 int MAIN_FUNC(int argc, char* argv[]) {
   assert(0 == Eval("2,-10,/"));
   assert(-5 == Eval("-10,2,/"));
@@ -58,3 +62,4 @@ int MAIN_FUNC(int argc, char* argv[]) {
   assert(-6 == Eval("1,2,3,4,5,+,*,+,+,3,4,*,+,-7,/"));
   return 0;
 }
+// @pg_end
