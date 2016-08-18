@@ -14,9 +14,9 @@ using std::endl;
 using std::random_device;
 using std::string;
 using std::uniform_int_distribution;
-// @pg_impl
+// @pg_impl:1
 string ConstructFromBase(int, int);
-// @pg_end
+
 // @pg_skeleton
 // @include
 string ConvertBase(const string& s, int b1, int b2) {

@@ -1,12 +1,10 @@
 // Copyright (c) 2016 Elements of Programming Interviews. All rights reserved.
-// @pg_harness
 #include "test_toolkit/test-options.h"
-// @pg_ignore
+// @pg_ignore:2
 #include "Sudoku_solve.cc"
 #include "sudoku_check.cc"
-// @pg_end
-// @pg_include Sudoku_solve.cc
-// @pg_include sudoku_check.cc
+// @pg_include:Sudoku_solve.cc
+// @pg_include:sudoku_check.cc
 
 void UnitTest(TestSentry::Ptr& sentry, const char* description,
               SudokuField input) {
@@ -91,4 +89,3 @@ int main(int argc, char* argv[]) {
   DirectedTests(TestOptions(&cout));
   return 0;
 }
-// @pg_end

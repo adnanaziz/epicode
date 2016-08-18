@@ -1,10 +1,8 @@
 // Copyright (c) 2016 Elements of Programming Interviews. All rights reserved.
-// @pg_harness
 #include "test_toolkit/test-options.h"
-// @pg_ignore
+// @pg_ignore:1
 #include "normalized_pathnames.cc"
-// @pg_end
-// @pg_include normalized_pathnames.cc
+// @pg_include:normalized_pathnames.cc
 
 void UnitTest(TestSentry::Ptr& sentry, const char* description,
               const string& input, const string& expected) {
@@ -47,4 +45,3 @@ int main(int argc, char* argv[]) {
   DirectedTests(TestOptions(&cout));
   return 0;
 }
-// @pg_end

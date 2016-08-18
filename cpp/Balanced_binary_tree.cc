@@ -6,10 +6,9 @@
 #include <memory>
 #include <utility>
 
-// @pg_ignore
+// @pg_ignore:1
 #include "./Binary_tree_prototype.h"
-// @pg_end
-// @pg_include Binary_tree_prototype.h
+// @pg_include:Binary_tree_prototype.h
 #include "test_toolkit/main_def.h"
 
 using std::boolalpha;
@@ -35,9 +34,8 @@ struct BalancedStatusWithHeight {
 
 // @pg_skeleton
 bool IsBalanced(const unique_ptr<BinaryTreeNode<int>>& tree) {
-  // @pg_impl
+  // @pg_impl:1
   return CheckBalanced(tree).balanced;
-  // @pg_end
 }
 // @pg_end
 

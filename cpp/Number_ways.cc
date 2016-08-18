@@ -15,16 +15,14 @@ using std::swap;
 using std::uniform_int_distribution;
 using std::vector;
 
-// @pg_impl
+// @pg_impl:1
 int ComputeNumberOfWaysToXY(int, int, vector<vector<int>>*);
-// @pg_end
 // @pg_skeleton
 // @include
 int NumberOfWays(int n, int m) {
-  // @pg_impl
+  // @pg_impl:2
   vector<vector<int>> number_of_ways(n, vector<int>(m, 0));
   return ComputeNumberOfWaysToXY(n - 1, m - 1, &number_of_ways);
-  // @pg_end
 }
 // @pg_end
 // @pg_impl

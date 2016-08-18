@@ -17,9 +17,8 @@ using std::uniform_int_distribution;
 using std::vector;
 
 // @include
-// @pg_header
+// @pg_header:1
 const int kMPG = 20;
-// @pg_end
 // gallons[i] is the amount of gas in city i, and distances[i] is the distance
 // city i to the next city.
 // @pg_skeleton

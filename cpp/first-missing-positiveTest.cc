@@ -1,10 +1,8 @@
 // Copyright (c) 2016 Elements of Programming Interviews. All rights reserved.
-// @pg_harness
 #include "test_toolkit/test-options.h"
-// @pg_ignore
+// @pg_ignore:1
 #include "first-missing-positive.cc"
-// @pg_end
-// @pg_include first-missing-positive.cc
+// @pg_include:first-missing-positive.cc
 
 void UnitTest(TestSentry::Ptr& sentry, const char* description,
               const vector<int>& input, int expected) {
@@ -36,4 +34,3 @@ int main(int argc, char* argv[]) {
   DirectedTests(TestOptions(&cout));
   return 0;
 }
-// @pg_end

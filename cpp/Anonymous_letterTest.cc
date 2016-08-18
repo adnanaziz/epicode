@@ -1,10 +1,8 @@
 // Copyright (c) 2016 Elements of Programming Interviews. All rights reserved.
-// @pg_harness
 #include "test_toolkit/test-options.h"
-// @pg_ignore
-#include "./Anonymous_letter.cc"
-// @pg_end
-// @pg_include Anonymous_letter.cc
+// @pg_ignore:1
+#include "Anonymous_letter.cc"
+// @pg_include:Anonymous_letter.cc
 void UnitTest(TestSentry::Ptr& sentry, const char* description,
               const string& letter, const string& magazine,
               bool expected) {
@@ -43,4 +41,3 @@ int main(int argc, char* argv[]) {
   DirectedTests(TestOptions(&cout));
   return 0;
 }
-// @pg_end

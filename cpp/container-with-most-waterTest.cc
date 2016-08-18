@@ -1,10 +1,8 @@
 // Copyright (c) 2016 Elements of Programming Interviews. All rights reserved.
-// @pg_harness
 #include "test_toolkit/test-options.h"
-// @pg_ignore
+// @pg_ignore:1
 #include "container-with-most-water.cc"
-// @pg_end
-// @pg_include container-with-most-water.cc
+// @pg_include:container-with-most-water.cc
 void UnitTest(TestSentry::Ptr& sentry, const char* description,
               const vector<int>& input, int expected) {
   TestStream::Ptr stream = sentry->GetTestStream(TestType::NORMAL, description);

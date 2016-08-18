@@ -17,19 +17,17 @@ using std::ostream_iterator;
 using std::vector;
 
 typedef vector<vector<int>> SudokuField; //FIXME(Kroilov) Include this typedef into book listing?
-// @pg_impl
+// @pg_impl:2
 bool SolvePartialSudoku(int, int, vector<vector<int>>*);
 bool ValidToAddVal(const vector<vector<int>>&, int, int, int);
-// @pg_end
+
 // @include
-// @pg_header
+// @pg_header:1
 const int kEmptyEntry = 0;
-// @pg_end
 // @pg_skeleton
 bool SolveSudoku(vector<vector<int>>* partial_assignment) {
-  // @pg_impl
+  // @pg_impl:1
   return SolvePartialSudoku(0, 0, partial_assignment);
-  // @pg_end
 }
 // @pg_end
 // @pg_impl
