@@ -8,6 +8,7 @@ import java.util.Objects;
 
 public class BinaryTreePrototypeTemplate {
   // @include
+  // @pg_only_header
   public static class BinaryTreeNode<T> {
     public T data;
     public BinaryTreeNode<T> left, right;
@@ -23,6 +24,7 @@ public class BinaryTreePrototypeTemplate {
       this.left = left;
       this.right = right;
     }
+    // @pg_end
 
     @Override
     public boolean equals(Object o) {
@@ -109,6 +111,7 @@ public class BinaryTreePrototypeTemplate {
       return result.subList(0, result.size() - numTrailingHashes);
     }
 
+
     private static void testToString() {
       BinaryTreeNode A = new BinaryTreeNode<>(1);
       A.right = new BinaryTreeNode<>(2);
@@ -138,7 +141,9 @@ public class BinaryTreePrototypeTemplate {
       System.out.println(D);
       assert(D.toString().equals("{5,4,7,3,#,2,#,-1,#,9}"));
     }
+
     // @include
+    // @pg_only_header:1
   }
   // @exclude
 }

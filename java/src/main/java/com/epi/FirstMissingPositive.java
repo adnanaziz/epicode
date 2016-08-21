@@ -3,7 +3,7 @@ package com.epi;
 /*
 
 @slug
-first-missing-postive
+first-missing-positive
 
 @problem
 Let $A$ be an array of length $n$. Design an
@@ -15,11 +15,14 @@ present in $A$ is $2$.
 
 */
 
+// @pg_import
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+// @pg_end
+
 
 public class FirstMissingPositive {
   private static int checkAns(List<Integer> A) {
@@ -38,7 +41,9 @@ public class FirstMissingPositive {
   }
 
   // @include
+  // @pg_skeleton
   public static int findFirstMissingPositive(List<Integer> A) {
+    // @pg_impl
     // Record which values are present by writing A.get(i) to index A.get(i) - 1
     // if A.get(i) is between 1 and A.size(), inclusive. We save the value at
     // index A.get(i) - 1 by swapping it with the entry at i. If A.get(i) is
@@ -62,7 +67,9 @@ public class FirstMissingPositive {
       }
     }
     return A.size() + 1;
+    // @pg_end
   }
+  // @pg_end
   // @exclude
 
   public static void main(String[] args) {

@@ -1,5 +1,6 @@
 package com.epi;
 
+// @pg_import
 import com.epi.utils.AbstractTestOptions;
 import com.epi.utils.AbstractTestStream;
 import com.epi.utils.JsonTestOptions;
@@ -7,11 +8,17 @@ import com.epi.utils.TestType;
 
 import java.util.Arrays;
 import java.util.List;
+// @pg_end
 
+// @pg_ignore:2
+import static com.epi.SudokuCheck.isValidSudoku;
 import static com.epi.SudokuSolve.solveSudoku;
 
 public class SudokuSolveTest {
-
+  // @pg_ignore
+  // @pg_include:SudokuSolve.java
+  // @pg_include:SudokuCheck.java
+  // @pg_end
   private static void unitTest(AbstractTestOptions options, String description,
                                List<List<Integer>> input) {
     AbstractTestStream stream = options.getStream();
@@ -21,7 +28,7 @@ public class SudokuSolveTest {
 
     try {
       solveSudoku(input);
-      stream.registerUserOutput(input, SudokuCheck.isValidSudoku(input));
+      stream.registerUserOutput(input, isValidSudoku(input));
     }
     catch (NullPointerException e) {
       stream.registerNullPointerException();

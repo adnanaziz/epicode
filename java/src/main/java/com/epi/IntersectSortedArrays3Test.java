@@ -1,5 +1,6 @@
 package com.epi;
 
+// @pg_import
 import com.epi.utils.AbstractTestOptions;
 import com.epi.utils.AbstractTestStream;
 import com.epi.utils.JsonTestOptions;
@@ -8,11 +9,14 @@ import com.epi.utils.TestType;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-
+// @pg_end
+// @pg_ignore:1
 import static com.epi.IntersectSortedArrays3.intersectTwoSortedArrays;
 
 public class IntersectSortedArrays3Test {
-
+  // @pg_ignore
+  // @pg_include:IntersectSortedArrays3.java
+  // @pg_end
   private static void unitTest(AbstractTestOptions options, String description,
                                List<Integer> a, List<Integer> b, List<Integer> expected) {
     AbstractTestStream stream = options.getStream();

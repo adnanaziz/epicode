@@ -1,5 +1,6 @@
 package com.epi;
 
+// @pg_import
 import com.epi.utils.AbstractTestOptions;
 import com.epi.utils.AbstractTestStream;
 import com.epi.utils.JsonTestOptions;
@@ -8,12 +9,19 @@ import com.epi.utils.TreeUtils;
 
 import java.util.Arrays;
 import java.util.List;
+// @pg_end
 
+import com.epi.BinaryTreePrototypeTemplate.BinaryTreeNode;
+
+// @pg_ignore:1
 import static com.epi.BalancedBinaryTree.isBalanced;
 
 public class BalancedBinaryTreeTest {
+  // @pg_ignore
+  // @pg_include:BalancedBinaryTree.java
+  // @pg_end
   private static void unitTest(AbstractTestOptions options, String description,
-                               BinaryTreePrototypeTemplate.BinaryTreeNode<Integer> tree, boolean expected) {
+                               BinaryTreeNode<Integer> tree, boolean expected) {
     AbstractTestStream stream = options.getStream();
     stream.startTest(TestType.NORMAL, description);
     stream.registerInput(tree);
@@ -52,21 +60,21 @@ public class BalancedBinaryTreeTest {
     unitTestHelper(options, "Negative test #4", Arrays.asList(5, 7, 8), false);
     unitTestHelper(options, "Negative test #5", Arrays.asList(5, 4, 3, 2, 7, 6, 8, 9), false);
 
-    BinaryTreePrototypeTemplate.BinaryTreeNode<Integer> a = new BinaryTreePrototypeTemplate.BinaryTreeNode<>(1);
-    BinaryTreePrototypeTemplate.BinaryTreeNode<Integer> b = new BinaryTreePrototypeTemplate.BinaryTreeNode<>(0);
-    BinaryTreePrototypeTemplate.BinaryTreeNode<Integer> c = new BinaryTreePrototypeTemplate.BinaryTreeNode<>(1);
-    BinaryTreePrototypeTemplate.BinaryTreeNode<Integer> d = new BinaryTreePrototypeTemplate.BinaryTreeNode<>(0);
-    BinaryTreePrototypeTemplate.BinaryTreeNode<Integer> e = new BinaryTreePrototypeTemplate.BinaryTreeNode<>(1);
-    BinaryTreePrototypeTemplate.BinaryTreeNode<Integer> f = new BinaryTreePrototypeTemplate.BinaryTreeNode<>(0);
-    BinaryTreePrototypeTemplate.BinaryTreeNode<Integer> g = new BinaryTreePrototypeTemplate.BinaryTreeNode<>(1);
-    BinaryTreePrototypeTemplate.BinaryTreeNode<Integer> h = new BinaryTreePrototypeTemplate.BinaryTreeNode<>(0);
-    BinaryTreePrototypeTemplate.BinaryTreeNode<Integer> i = new BinaryTreePrototypeTemplate.BinaryTreeNode<>(1);
-    BinaryTreePrototypeTemplate.BinaryTreeNode<Integer> j = new BinaryTreePrototypeTemplate.BinaryTreeNode<>(0);
-    BinaryTreePrototypeTemplate.BinaryTreeNode<Integer> k = new BinaryTreePrototypeTemplate.BinaryTreeNode<>(1);
-    BinaryTreePrototypeTemplate.BinaryTreeNode<Integer> l = new BinaryTreePrototypeTemplate.BinaryTreeNode<>(0);
-    BinaryTreePrototypeTemplate.BinaryTreeNode<Integer> m = new BinaryTreePrototypeTemplate.BinaryTreeNode<>(1);
-    BinaryTreePrototypeTemplate.BinaryTreeNode<Integer> n = new BinaryTreePrototypeTemplate.BinaryTreeNode<>(0);
-    BinaryTreePrototypeTemplate.BinaryTreeNode<Integer> o = new BinaryTreePrototypeTemplate.BinaryTreeNode<>(1);
+    BinaryTreeNode<Integer> a = new BinaryTreeNode<>(1);
+    BinaryTreeNode<Integer> b = new BinaryTreeNode<>(0);
+    BinaryTreeNode<Integer> c = new BinaryTreeNode<>(1);
+    BinaryTreeNode<Integer> d = new BinaryTreeNode<>(0);
+    BinaryTreeNode<Integer> e = new BinaryTreeNode<>(1);
+    BinaryTreeNode<Integer> f = new BinaryTreeNode<>(0);
+    BinaryTreeNode<Integer> g = new BinaryTreeNode<>(1);
+    BinaryTreeNode<Integer> h = new BinaryTreeNode<>(0);
+    BinaryTreeNode<Integer> i = new BinaryTreeNode<>(1);
+    BinaryTreeNode<Integer> j = new BinaryTreeNode<>(0);
+    BinaryTreeNode<Integer> k = new BinaryTreeNode<>(1);
+    BinaryTreeNode<Integer> l = new BinaryTreeNode<>(0);
+    BinaryTreeNode<Integer> m = new BinaryTreeNode<>(1);
+    BinaryTreeNode<Integer> n = new BinaryTreeNode<>(0);
+    BinaryTreeNode<Integer> o = new BinaryTreeNode<>(1);
     a.left  = b;
     a.right = k;
     b.left  = c;

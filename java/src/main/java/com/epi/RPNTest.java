@@ -1,14 +1,18 @@
 package com.epi;
 
+// @pg_import:4
 import com.epi.utils.AbstractTestOptions;
 import com.epi.utils.AbstractTestStream;
 import com.epi.utils.JsonTestOptions;
 import com.epi.utils.TestType;
 
+// @pg_ignore:1
 import static com.epi.RPN.eval;
 
 public class RPNTest {
-
+  // @pg_ignore
+  // @pg_include:RPN.java
+  // @pg_end
   private static void unitTest(AbstractTestOptions options, String description,
                                String input, int expected) {
     AbstractTestStream stream = options.getStream();

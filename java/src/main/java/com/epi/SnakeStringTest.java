@@ -1,14 +1,17 @@
 package com.epi;
-
+// @pg_import:4
 import com.epi.utils.AbstractTestOptions;
 import com.epi.utils.AbstractTestStream;
 import com.epi.utils.JsonTestOptions;
 import com.epi.utils.TestType;
 
+// @pg_ignore:1
 import static com.epi.SnakeString.snakeString;
 
 public class SnakeStringTest {
-
+  // @pg_ignore
+  // @pg_include:SnakeString.java
+  // @pg_end
   private static void unitTest(AbstractTestOptions options, String description,
                                String input, String expected) {
     AbstractTestStream stream = options.getStream();

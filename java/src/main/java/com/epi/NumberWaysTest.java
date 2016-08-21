@@ -1,5 +1,5 @@
 package com.epi;
-
+// @pg_import
 import com.epi.utils.AbstractTestOptions;
 import com.epi.utils.AbstractTestStream;
 import com.epi.utils.JsonTestOptions;
@@ -8,11 +8,14 @@ import com.epi.utils.TestType;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
+// @pg_end
+// @pg_ignore:1
 import static com.epi.NumberWays.numberOfWays;
 
 public class NumberWaysTest {
-
+  // @pg_ignore
+  // @pg_include:NumberWays.java
+  // @pg_end
   private static int computeNumberOfWaysSpaceEfficient(int n, int m) {
     if (n < m) {
       int temp = n;

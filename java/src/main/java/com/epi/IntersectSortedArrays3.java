@@ -25,16 +25,20 @@ package com.epi;
 
  */
 
+// @pg_import:4
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+
 public class IntersectSortedArrays3 {
   // @include
   // @judge-include-display
+  // @pg_skeleton
   public static List<Integer> intersectTwoSortedArrays(List<Integer> A,
                                                        List<Integer> B) {
+    // @pg_impl
     // @judge-exclude-display
     List<Integer> intersectionAB = new ArrayList<>();
     int i = 0, j = 0;
@@ -50,8 +54,10 @@ public class IntersectSortedArrays3 {
       }
     }
     return intersectionAB;
+    // @pg_end
     // @judge-include-display
   }
+  // @pg_end
   // @judge-exclude-display
   // @exclude
 

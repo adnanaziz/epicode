@@ -1,13 +1,18 @@
 package com.epi;
 
+// @pg_import:4
 import com.epi.utils.AbstractTestOptions;
 import com.epi.utils.AbstractTestStream;
 import com.epi.utils.JsonTestOptions;
 import com.epi.utils.TestType;
 
+// @pg_ignore:1
 import static com.epi.AnonymousLetter.isLetterConstructibleFromMagazine;
 
 public class AnonymousLetterTest {
+  // @pg_ignore
+  // @pg_include:AnonymousLetter.java
+  // @pg_end
 
   private static void unitTest(AbstractTestOptions options, String description,
                                String letter, String magazine, boolean expected) {

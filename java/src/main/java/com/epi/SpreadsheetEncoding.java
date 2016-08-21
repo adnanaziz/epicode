@@ -31,15 +31,19 @@ public class SpreadsheetEncoding {
     return result.toString();
   }
 
+  // @pg_skeleton
   // @include
   public static int ssDecodeColID(final String col) {
+    // @pg_impl
     int result = 0;
     for (int i = 0; i < col.length(); i++) {
       char c = col.charAt(i);
       result = result * 26 + c - 'A' + 1;
     }
     return result;
+    // @pg_end
   }
+  // @pg_end
   // @exclude
 
   private static void simpleTest() {

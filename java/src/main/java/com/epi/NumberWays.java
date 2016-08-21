@@ -31,6 +31,7 @@ package com.epi;
 
  */
 
+// @pg_import:4
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -39,13 +40,18 @@ import java.util.Random;
 public class NumberWays {
   // @include
   // @judge-include-display
+  // @pg_skeleton
   public static int numberOfWays(int n, int m) {
     // @judge-exclude-display
+    // @pg_impl:1
     return computeNumberOfWaysToXY(n - 1, m - 1, new int[n][m]);
     // @judge-include-display
   }
+  // @pg_end
   // @judge-exclude-display
 
+  // @pg_end
+  // @pg_impl
   private static int computeNumberOfWaysToXY(int x, int y,
                                              int[][] numberOfWays) {
     if (x == 0 || y == 0) {
@@ -61,8 +67,10 @@ public class NumberWays {
     }
     return numberOfWays[x][y];
   }
+  // @pg_end
   // @exclude
 
+  // @pg_ignore
   private static int computeNumberOfWaysSpaceEfficient(int n, int m) {
     if (n < m) {
       int temp = n;

@@ -1,5 +1,5 @@
 package com.epi;
-
+// @pg_import
 import com.epi.utils.AbstractTestOptions;
 import com.epi.utils.AbstractTestStream;
 import com.epi.utils.JsonTestOptions;
@@ -7,11 +7,14 @@ import com.epi.utils.TestType;
 
 import java.util.Arrays;
 import java.util.List;
-
+// @pg_end
+// @pg_ignore:1
 import static com.epi.MatrixSearch.matrixSearch;
 
 public class MatrixSearchTest {
-
+  // @pg_ignore
+  // @pg_include:MatrixSearch.java
+  // @pg_end
   private static void unitTest(AbstractTestOptions options, String description,
                                List<List<Integer>> input, int x, boolean expected) {
     AbstractTestStream stream = options.getStream();

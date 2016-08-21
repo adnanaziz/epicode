@@ -1,13 +1,19 @@
 package com.epi;
 
+// @pg_import
 import com.epi.utils.AbstractTestOptions;
 import com.epi.utils.AbstractTestStream;
 import com.epi.utils.JsonTestOptions;
 import com.epi.utils.TestType;
+// @pg_end
 
+// @pg_ignore:1
 import static com.epi.SquareRootInt.squareRoot;
 
 public class SquareRootIntTest {
+  // @pg_ignore
+  // @pg_include:SquareRootInt.java
+  // @pg_end
   private static void unitTest(AbstractTestOptions options, String description,
                                int input, int expected) {
     AbstractTestStream stream = options.getStream();

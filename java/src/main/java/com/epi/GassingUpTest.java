@@ -1,5 +1,6 @@
 package com.epi;
 
+// @pg_import
 import com.epi.utils.AbstractTestOptions;
 import com.epi.utils.AbstractTestStream;
 import com.epi.utils.JsonTestOptions;
@@ -8,12 +9,17 @@ import com.epi.utils.TestType;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+// @pg_end
 
+// @pg_ignore:2
 import static com.epi.GassingUp.MPG;
 import static com.epi.GassingUp.findAmpleCity;
 
-public class GassingUpTest {
 
+public class GassingUpTest {
+  // @pg_ignore
+  // @pg_include:GassingUp.java
+  // @pg_end
   private static void unitTest(AbstractTestOptions options, String description,
                                List<Integer> gallons,
                                List<Integer> distances_measured_in_gallons,

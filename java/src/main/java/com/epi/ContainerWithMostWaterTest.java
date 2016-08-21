@@ -1,5 +1,6 @@
 package com.epi;
 
+// @pg_import
 import com.epi.utils.AbstractTestOptions;
 import com.epi.utils.AbstractTestStream;
 import com.epi.utils.JsonTestOptions;
@@ -7,10 +8,15 @@ import com.epi.utils.TestType;
 
 import java.util.Arrays;
 import java.util.List;
+// @pg_end
 
+// @pg_ignore:1
 import static com.epi.ContainerWithMostWater.getMaxTrappedWater;
 
 public class ContainerWithMostWaterTest {
+  // @pg_ignore
+  // @pg_include:ContainerWithMostWater.java
+  // @pg_end
 
   private static void unitTest(AbstractTestOptions options, String description,
                                List<Integer> input, int expected) {

@@ -1,13 +1,18 @@
 package com.epi;
 
+// @pg_import:4
 import com.epi.utils.AbstractTestOptions;
 import com.epi.utils.AbstractTestStream;
 import com.epi.utils.JsonTestOptions;
 import com.epi.utils.TestType;
 
+// @pg_ignore:1
 import static com.epi.SpreadsheetEncoding.ssDecodeColID;
 
 public class SpreadsheetEncodingTest {
+  // @pg_ignore
+  // @pg_include:SpreadsheetEncoding.java
+  // @pg_end
   private static void unitTest(AbstractTestOptions options, String description,
                                String input, int expected) {
   AbstractTestStream stream = options.getStream();

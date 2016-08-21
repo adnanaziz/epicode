@@ -1,5 +1,6 @@
 package com.epi;
 
+// @pg_import
 import com.epi.utils.AbstractTestOptions;
 import com.epi.utils.AbstractTestStream;
 import com.epi.utils.JsonTestOptions;
@@ -8,10 +9,15 @@ import com.epi.utils.TestType;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+// @pg_end
 
+// @pg_ignore:1
 import static com.epi.FirstMissingPositive.findFirstMissingPositive;
 
 public class FirstMissingPositiveTest {
+  // @pg_ignore
+  // @pg_include:FirstMissingPositive.java
+  // @pg_end
 
   private static void unitTest(AbstractTestOptions options, String description, List<Integer> input, int expected) {
     AbstractTestStream stream = options.getStream();

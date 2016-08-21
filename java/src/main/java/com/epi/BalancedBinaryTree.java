@@ -49,7 +49,10 @@ package com.epi;
 import com.epi.BinaryTreePrototypeTemplate.BinaryTreeNode;
 
 public class BalancedBinaryTree {
+  // @pg_include:BinaryTreePrototypeTemplate.java
   // @include
+  // @pg_end
+  // @pg_impl
   private static class BalanceStatusWithHeight {
     public boolean balanced;
     public int height;
@@ -59,15 +62,20 @@ public class BalancedBinaryTree {
       this.height = height;
     }
   }
+  // @pg_end
 
   // @judge-include-display
+  // @pg_skeleton
   public static boolean isBalanced(BinaryTreeNode<Integer> tree) {
     // @judge-exclude-display
+    // @pg_impl:1
     return checkBalanced(tree).balanced;
     // @judge-include-display
   }
+  // @pg_end
   // @judge-exclude-display
 
+  // @pg_impl
   private static BalanceStatusWithHeight checkBalanced(
       BinaryTreeNode<Integer> tree) {
     if (tree == null) {
@@ -87,8 +95,10 @@ public class BalancedBinaryTree {
     int height = Math.max(leftResult.height, rightResult.height) + 1;
     return new BalanceStatusWithHeight(isBalanced, height);
   }
+  // @pg_end
   // @exclude
 
+  // @pg_ignore
   public static void main(String[] args) {
     // balanced binary tree test
     // 3
@@ -113,3 +123,4 @@ public class BalancedBinaryTree {
     }
   }
 }
+

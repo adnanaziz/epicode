@@ -19,17 +19,24 @@ a complete solution is shown in Figure~\vref{sudoku-checker-fig-b}.
 Implement a Sudoku solver.
 */
 
+// @pg_import:2
 import java.util.Arrays;
 import java.util.List;
 
 public class SudokuSolve {
   // @include
+  // @pg_header:1
   private static final int EMPTY_ENTRY = 0;
 
+  // @pg_skeleton
   public static boolean solveSudoku(List<List<Integer>> partialAssignment) {
+    // @pg_impl:1
     return solvePartialSudoku(0, 0, partialAssignment);
   }
+  // @pg_end
 
+  // @pg_harness
+  // @pg_impl
   private static boolean solvePartialSudoku(
       int i, int j, List<List<Integer>> partialAssignment) {
     if (i == partialAssignment.size()) {
@@ -94,6 +101,8 @@ public class SudokuSolve {
     return true;
   }
   // @exclude
+  // @pg_end
+  // @pg_end
 
   public static void main(String[] args) {
     List<List<Integer>> A
