@@ -1,15 +1,15 @@
 // Copyright (c) 2013 Elements of Programming Interviews. All rights reserved.
 
+#include <algorithm>
+#include <cassert>
+#include <cmath>
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
 #include <iterator>
-#include <cmath>
 #include <limits>
 #include <numeric>
-#include <algorithm>
-#include <ctime>
-#include <cstdlib>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 

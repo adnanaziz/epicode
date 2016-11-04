@@ -22,7 +22,7 @@ public class IntersectRectangle {
   }
 
   public static Rectangle intersectRectangle(Rectangle R1, Rectangle R2) {
-    if (isIntersect(R1, R2)) {
+    if (!isIntersect(R1, R2)) {
       return new Rectangle(0, 0, -1, -1); // No intersection.
     }
     return new Rectangle(

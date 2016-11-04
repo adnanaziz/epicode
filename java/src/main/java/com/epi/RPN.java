@@ -18,15 +18,12 @@ Write a program that takes an arithmetical expression in RPN
 and returns the number that the expression evaluates to.
 */
 
-// @pg_import:2
 import java.util.Deque;
 import java.util.LinkedList;
 
 public class RPN {
-  // @pg_skeleton
   // @include
   public static int eval(String RPNExpression) {
-    // @pg_impl
     Deque<Integer> intermediateResults = new LinkedList<>();
     String delimiter = ",";
     String[] symbols = RPNExpression.split(delimiter);
@@ -55,9 +52,7 @@ public class RPN {
       }
     }
     return intermediateResults.removeFirst();
-    // @pg_end
   }
-  // @pg_end
   // @exclude
 
   public static void main(String[] args) {

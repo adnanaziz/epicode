@@ -10,10 +10,8 @@ using std::vector;
 namespace IntersectTwoSortedArrays3 {
 
 // @include
-// @pg_skeleton
 vector<int> IntersectTwoSortedArrays(const vector<int>& A,
                                      const vector<int>& B) {
-// @pg_impl
   vector<int> intersection_A_B;
   int i = 0, j = 0;
   while (i < A.size() && j < B.size()) {
@@ -27,9 +25,7 @@ vector<int> IntersectTwoSortedArrays(const vector<int>& A,
     }
   }
   return intersection_A_B;
-// @pg_end
 }
-// @pg_end
 // @exclude
 
 }  // namespace IntersectTwoSortedArrays3

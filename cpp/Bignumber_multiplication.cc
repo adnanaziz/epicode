@@ -37,9 +37,9 @@ vector<int> Multiply(vector<int> num1, vector<int> num2) {
   }
 
   // Remove the leading zeroes.
-  result = {find_if_not(begin(result), end(result), [](int a) {
-              return a == 0;
-            }), end(result)};
+  result = {
+      find_if_not(begin(result), end(result), [](int a) { return a == 0; }),
+      end(result)};
   if (result.empty()) {
     return {0};
   }

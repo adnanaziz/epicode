@@ -22,9 +22,7 @@ import java.util.Random;
 
 public class PalindromeNumber {
   // @include
-  // @pg_skeleton
   public static boolean isPalindromeNumber(int x) {
-    // @pg_impl
     if (x < 0) {
       return false;
     }
@@ -40,9 +38,7 @@ public class PalindromeNumber {
       msdMask /= 100;
     }
     return true;
-    // @pg_end
   }
-  // @pg_end
   // @exclude
 
   private static boolean checkAns(int x) {

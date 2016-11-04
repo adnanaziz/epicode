@@ -50,8 +50,8 @@ bool IsPatternContainedInGrid(const vector<vector<int>>& grid,
                               const vector<int>& pattern) {
   // Each entry in previous_attempts is a point in the grid and suffix of
   // pattern (identified by its offset). Presence in previousAttempts
-  // indicates
-  // the suffix is not contained in the grid starting from that point.
+  // indicates the suffix is not contained in the grid starting from that
+  // point.
   unordered_set<tuple<int, int, int>, HashTuple> previous_attempts;
   for (int i = 0; i < grid.size(); ++i) {
     for (int j = 0; j < grid[i].size(); ++j) {

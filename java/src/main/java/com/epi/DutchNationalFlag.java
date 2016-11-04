@@ -1,41 +1,4 @@
 // Copyright (c) 2015 Elements of Programming Interviews. All rights reserved.
-
-/*
-    @slug
-    dutch-national-flag
-
-    @title
-    Dutch National Flag Partitioning
-
-    @problem
-    Write a program that takes an array A and an index i into A, and rearranges
-   the
-    elements such that all elements less than A[i] (the "pivot") appear first,
-   followed by
-    elements equal to the pivot, followed by elements greater than the pivot.
-    <p>
-    As an example, assuming that black precedes white and white precedes gray,
-    Figure 2.1(b) is a valid partitioning for Figure 2.1(a).
-    If gray precedes black and black precedes white, Figure 2.1(c)
-    is a valid partitioning for Figure 2.1(a).
-    <br>
-    <img src="/dnf.png"></img>
-    <br>
-
-    @hint
-    It's possible to do this in O(n) time and O(1) space.
-
- */
-
-// epi py script to remove @judge directives
-//
-// judge py script reads whole file. main will run entirely (?).
-// we will import java.util.*, strip leading package and import statements
-// questions:
-//   how is the user supplied part executed?
-//   what if user adds classes? they will be inner classes here, is that a
-//   problem?
-//      (i think we will have to make methods nonstatic to get away with this)
 package com.epi;
 
 import java.util.ArrayList;
@@ -46,11 +9,9 @@ import java.util.Random;
 
 public class DutchNationalFlag {
   // @include
-  // @judge-include-display
   public static enum Color { RED, WHITE, BLUE }
 
   public static void dutchFlagPartition(int pivotIndex, List<Color> A) {
-    // @judge-exclude-display
     Color pivot = A.get(pivotIndex);
 
     /**
@@ -72,9 +33,7 @@ public class DutchNationalFlag {
         Collections.swap(A, equal, --larger);
       }
     }
-    // @judge-include-display
   }
-  // @judge-exclude-display
 
   // @exclude
 

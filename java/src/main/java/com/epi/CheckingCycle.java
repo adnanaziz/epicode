@@ -1,27 +1,9 @@
 // Copyright (c) 2015 Elements of Programming Interviews. All rights reserved.
-
-/*
-   @slug
-   list-cycle
-
-   @problem
-   Write a program that takes a reference to the head of a singly linked list
-   and returns null if there does not exist a
-   cycle, and the reference to the start of the cycle, if a cycle is present.
-   (You do not know the length of the list in advance.)
-
-   @hint
-   Consider using two iterators, one fast and one slow.
-
-   */
-
 package com.epi;
 
 public class CheckingCycle {
   // @include
-  // @judge-include-display
   public static ListNode<Integer> hasCycle(ListNode<Integer> head) {
-    // @judge-exclude-display
     ListNode<Integer> fast = head, slow = head;
 
     while (fast != null && fast.next != null) {
@@ -52,9 +34,7 @@ public class CheckingCycle {
       }
     }
     return null; // no cycle.
-    // @judge-include-display
   }
-  // @judge-exclude-display
   // @exclude
 
   private static void check(ListNode L, ListNode expectedValue) {

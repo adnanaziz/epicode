@@ -28,9 +28,9 @@ vector<int> NextPermutation(vector<int> perm) {
   // exploit the fact that perm[k + 1 : perm.size() - 1] is decreasing so if
   // we search in reverse order, the first entry that is greater than perm[k]
   // is the smallest such entry.
-  swap(*find_if(perm.rbegin(), perm.rend(), [&](int a) {
-    return a > perm[k];
-  }), perm[k]);
+  swap(*find_if(perm.rbegin(), perm.rend(),
+                [&](int a) { return a > perm[k]; }),
+       perm[k]);
 
   // Since perm[k + 1 : perm.size() - 1] is in decreasing order, we can build
   // the smallest dictionary ordering of this subarray by reversing it.

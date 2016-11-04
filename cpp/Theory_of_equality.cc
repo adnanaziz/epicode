@@ -4,9 +4,9 @@
 #include <deque>
 #include <iostream>
 #include <random>
-#include <vector>
 #include <unordered_map>
 #include <utility>
+#include <vector>
 
 using std::boolalpha;
 using std::cout;

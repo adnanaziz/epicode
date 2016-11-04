@@ -5,8 +5,6 @@
 #include <random>
 #include <vector>
 
-#include "test_toolkit/main_def.h"
-
 using std::cout;
 using std::default_random_engine;
 using std::endl;
@@ -15,17 +13,13 @@ using std::swap;
 using std::uniform_int_distribution;
 using std::vector;
 
-// @pg_impl:1
 int ComputeNumberOfWaysToXY(int, int, vector<vector<int>>*);
-// @pg_skeleton
+
 // @include
 int NumberOfWays(int n, int m) {
-  // @pg_impl:2
   vector<vector<int>> number_of_ways(n, vector<int>(m, 0));
   return ComputeNumberOfWaysToXY(n - 1, m - 1, &number_of_ways);
 }
-// @pg_end
-// @pg_impl
 
 int ComputeNumberOfWaysToXY(int x, int y,
                             vector<vector<int>>* number_of_ways_ptr) {
@@ -43,7 +37,6 @@ int ComputeNumberOfWaysToXY(int x, int y,
   }
   return number_of_ways[x][y];
 }
-// @pg_end
 // @exclude
 
 int ComputeNumberOfWaysSpaceEfficient(int n, int m) {
@@ -63,7 +56,7 @@ int ComputeNumberOfWaysSpaceEfficient(int n, int m) {
   }
   return A[m - 1];
 }
-// @pg_ignore
+
 int CheckAns(int n, int k) {
   vector<vector<int>> table(n + 1, vector<int>(k + 1));
   // Basic case: C(i, 0) = 1.
@@ -83,7 +76,7 @@ int CheckAns(int n, int k) {
   return table[n][k];
 }
 
-int MAIN_FUNC(int argc, char* argv[]) {
+int main(int argc, char* argv[]) {
   default_random_engine gen((random_device())());
   for (int times = 0; times < 1000; ++times) {
     int n, m;
@@ -104,4 +97,3 @@ int MAIN_FUNC(int argc, char* argv[]) {
   }
   return 0;
 }
-// @pg_end

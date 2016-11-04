@@ -16,7 +16,7 @@ using std::uniform_int_distribution;
 using std::vector;
 
 struct GraphVertex;
-bool HasCycle(GraphVertex*, const GraphVertex*);
+bool HasCycle(GraphVertex*);
 
 // @include
 struct GraphVertex {
@@ -26,11 +26,11 @@ struct GraphVertex {
 
 bool IsDeadlocked(vector<GraphVertex>* G) {
   return any_of(begin(*G), end(*G), [](GraphVertex& vertex) {
-    return vertex.color == GraphVertex::white && HasCycle(&vertex, nullptr);
+    return vertex.color == GraphVertex::white && HasCycle(&vertex);
   });
 }
 
-bool HasCycle(GraphVertex* cur, const GraphVertex* pre) {
+bool HasCycle(GraphVertex* cur) {
   // Visiting a gray vertex means a cycle.
   if (cur->color == GraphVertex::gray) {
     return true;
@@ -39,8 +39,8 @@ bool HasCycle(GraphVertex* cur, const GraphVertex* pre) {
   cur->color = GraphVertex::gray;  // Marks current vertex as a gray one.
   // Traverse the neighbor vertices.
   for (GraphVertex*& next : cur->edges) {
-    if (next != pre && next->color != GraphVertex::black) {
-      if (HasCycle(next, cur)) {
+    if (next->color != GraphVertex::black) {
+      if (HasCycle(next)) {
         return true;
       }
     }
@@ -50,16 +50,14 @@ bool HasCycle(GraphVertex* cur, const GraphVertex* pre) {
 }
 // @exclude
 
-bool HasCycleExclusion(GraphVertex* cur, GraphVertex* prev) {
+bool HasCycleExclusion(GraphVertex* cur) {
   if (cur->color == GraphVertex::black) {
     return true;
   }
   cur->color = GraphVertex::black;
   for (GraphVertex*& next : cur->edges) {
-    if (next != prev) {
-      if (HasCycleExclusion(next, cur)) {
-        return true;
-      }
+    if (HasCycleExclusion(next)) {
+      return true;
     }
   }
   return false;
@@ -73,7 +71,7 @@ bool CheckAnswer(vector<GraphVertex>* G) {
   }
 
   for (GraphVertex& g : *G) {
-    if (HasCycleExclusion(&g, nullptr)) {
+    if (HasCycleExclusion(&g)) {
       return true;
     }
     // Reset color to white.
@@ -82,6 +80,16 @@ bool CheckAnswer(vector<GraphVertex>* G) {
     }
   }
   return false;
+}
+
+void TestTwoNodesCycle() {
+  vector<GraphVertex> G(2);
+  G[0].edges.emplace_back(&G[1]);
+  G[1].edges.emplace_back(&G[0]);
+  bool result = IsDeadlocked(&G);
+  cout << boolalpha << result << endl;
+  assert(CheckAnswer(&G) == result);
+  assert(result);
 }
 
 void TestDirectedCycle() {
@@ -151,6 +159,7 @@ void TestDirectedTwoSeparateCycles() {
 }
 
 int main(int argc, char* argv[]) {
+  TestTwoNodesCycle();
   TestDirectedCycle();
   TestDirectedStarTree();
   TestDirectedLineTree();

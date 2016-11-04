@@ -1,37 +1,5 @@
 package com.epi;
-/*
-    @slug
-    number-of-ways
 
-    @title
-    Number of ways
-
-    @problem
-    In this problem you are to count the number of ways of starting at the
-   top-left corner of a 2D array and getting to the bottom-right corner. All
-   moves must either
-   go right or down. We show three ways in a 5x5 2D array in the figure below
-   (many
-   more are possible).
-    <p>
-
-    <img src="/path-array.png"></img>
-    <p>
-
-    Write a program that counts how many ways you can go from the top-left to
-   the
-    bottom-right in an n x m 2D array. How would you do so in the presence of
-   obstacles,
-    specified by an n x m Boolean 2D array B, where a true represents an
-   obstacle?
-
-    @hint
-    If i > 0 and j > 0, you can get to (i, j) from (i - 1, j) or (j - 1, i).
-
-
- */
-
-// @pg_import:4
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -39,19 +7,10 @@ import java.util.Random;
 
 public class NumberWays {
   // @include
-  // @judge-include-display
-  // @pg_skeleton
   public static int numberOfWays(int n, int m) {
-    // @judge-exclude-display
-    // @pg_impl:1
     return computeNumberOfWaysToXY(n - 1, m - 1, new int[n][m]);
-    // @judge-include-display
   }
-  // @pg_end
-  // @judge-exclude-display
 
-  // @pg_end
-  // @pg_impl
   private static int computeNumberOfWaysToXY(int x, int y,
                                              int[][] numberOfWays) {
     if (x == 0 || y == 0) {
@@ -67,10 +26,8 @@ public class NumberWays {
     }
     return numberOfWays[x][y];
   }
-  // @pg_end
   // @exclude
 
-  // @pg_ignore
   private static int computeNumberOfWaysSpaceEfficient(int n, int m) {
     if (n < m) {
       int temp = n;

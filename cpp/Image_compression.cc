@@ -1,9 +1,9 @@
 // Copyright (c) 2013 Elements of Programming Interviews. All rights reserved.
 
 #include <array>
+#include <functional>
 #include <iostream>
 #include <limits>
-#include <functional>
 #include <memory>
 #include <numeric>
 #include <random>
@@ -77,7 +77,8 @@ shared_ptr<TreeNode> calculate_optimal_2D_tree(
   }
 
   unordered_map<Point, unordered_map<Point, shared_ptr<TreeNode>, HashPoint>,
-                HashPoint> table;
+                HashPoint>
+      table;
   return calculate_optimal_2D_tree_helper(
       image, image_sum, Point{0, 0},
       Point{static_cast<int>(image.size() - 1),

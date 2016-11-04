@@ -1,21 +1,5 @@
 package com.epi;
 
-/*
-    @slug
-    stack-with-max
-
-    @title
-    Stack with max operation
-
-    @problem
-    Design a stack that includes  a max() operation, in addition to push() and
-   pop().
-    The max method should return the maximum value stored in the stack.
-
-    @hint
-    Use additional storage to track the maximum value.
- */
-
 import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;
@@ -39,36 +23,24 @@ public class StackWithMax {
 
     public boolean empty() { return elementWithCachedMax.isEmpty(); }
 
-    // @judge-include-display
     public Integer max() {
-      // @judge-exclude-display
       if (empty()) {
         throw new IllegalStateException("max(): empty stack");
       }
       return elementWithCachedMax.peek().max;
-      // @judge-include-display
     }
-    // @judge-exclude-display
 
-    // @judge-include-display
     public Integer pop() {
-      // @judge-exclude-display
       if (empty()) {
         throw new IllegalStateException("pop(): empty stack");
       }
       return elementWithCachedMax.removeFirst().element;
-      // @judge-include-display
     }
-    // @judge-exclude-display
 
-    // @judge-include-display
     public void push(Integer x) {
-      // @judge-exclude-display
       elementWithCachedMax.addFirst(
           new ElementWithCachedMax(x, Math.max(x, empty() ? x : max())));
-      // @judge-include-display
     }
-    // @judge-exclude-display
   }
   // @exclude
 

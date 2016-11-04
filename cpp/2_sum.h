@@ -10,7 +10,7 @@ namespace TwoSum {
 using std::vector;
 
 // @include
-bool HasTwoSum(vector<int> A, int t) {
+bool HasTwoSum(const vector<int>& A, int t) {
   int i = 0, j = A.size() - 1;
   while (i <= j) {
     if (A[i] + A[j] == t) {

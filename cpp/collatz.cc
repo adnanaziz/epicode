@@ -1,5 +1,7 @@
 // Copyright (c) 2015 Elements of Programming Interviews. All rights reserved.
 
+#include <boost/thread.hpp>
+#include <boost/thread/sync_bounded_queue.hpp>
 #include <cassert>
 #include <chrono>
 #include <chrono>
@@ -7,8 +9,6 @@
 #include <iostream>
 #include <string>
 #include <unordered_set>
-#include <boost/thread.hpp>
-#include <boost/thread/sync_bounded_queue.hpp>
 
 using std::stoi;
 using std::bind;

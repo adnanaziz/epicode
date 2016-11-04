@@ -8,6 +8,10 @@ public class RotateArrayPermutation {
   // @include
   public static void rotateArray(int rotateAmount, List<Integer> A) {
     rotateAmount %= A.size();
+    if (rotateAmount == 0) {
+      return;
+    }
+
     int numCycles = (int)GCD1.GCD(A.size(), rotateAmount);
     int cycleLength = A.size() / numCycles;
 

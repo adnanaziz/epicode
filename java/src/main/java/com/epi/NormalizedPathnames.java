@@ -1,15 +1,12 @@
 package com.epi;
 
-// @pg_import:3
 import java.util.Deque;
 import java.util.Iterator;
 import java.util.LinkedList;
 
 public class NormalizedPathnames {
   // @include
-  // @pg_skeleton
   public static String shortestEquivalentPath(String path) {
-    // @pg_impl
     if (path.equals("")) {
       throw new IllegalArgumentException("Empty string is not a legal path.");
     }
@@ -50,28 +47,26 @@ public class NormalizedPathnames {
       }
     }
     return result.toString();
-    // @pg_end
   }
-  // @pg_end
   // @exclude
 
   public static void main(String[] args) {
-    assert (shortestEquivalentPath("123/456").equals("123/456"));
-    assert (shortestEquivalentPath("/123/456").equals("/123/456"));
-    assert (shortestEquivalentPath("usr/lib/../bin/gcc").equals("usr/bin/gcc"));
-    assert (shortestEquivalentPath("./../").equals(".."));
-    assert (shortestEquivalentPath("../../local").equals("../../local"));
-    assert (shortestEquivalentPath("./.././../local").equals("../../local"));
-    assert (shortestEquivalentPath("/foo/../foo/./../").equals("/"));
+    assert(shortestEquivalentPath("123/456").equals("123/456"));
+    assert(shortestEquivalentPath("/123/456").equals("/123/456"));
+    assert(shortestEquivalentPath("usr/lib/../bin/gcc").equals("usr/bin/gcc"));
+    assert(shortestEquivalentPath("./../").equals(".."));
+    assert(shortestEquivalentPath("../../local").equals("../../local"));
+    assert(shortestEquivalentPath("./.././../local").equals("../../local"));
+    assert(shortestEquivalentPath("/foo/../foo/./../").equals("/"));
     try {
       shortestEquivalentPath("/..");
-      assert (false);
+      assert(false);
     } catch (IllegalArgumentException e) {
       System.out.println(e.getMessage());
     }
     try {
       shortestEquivalentPath("");
-      assert (false);
+      assert(false);
     } catch (IllegalArgumentException e) {
       System.out.println(e.getMessage());
     }
@@ -79,10 +74,10 @@ public class NormalizedPathnames {
       shortestEquivalentPath("/cpp_name/bin/");
     } catch (Exception e) {
       System.out.println(e.getMessage());
-      assert (false);
+      assert(false);
     }
-    assert (shortestEquivalentPath("scripts//./../scripts/awkscripts/././")
-        .equals("scripts/awkscripts"));
+    assert(shortestEquivalentPath("scripts//./../scripts/awkscripts/././")
+               .equals("scripts/awkscripts"));
     if (args.length == 1) {
       System.out.println(shortestEquivalentPath(args[0]));
     }

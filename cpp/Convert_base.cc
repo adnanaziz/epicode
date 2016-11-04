@@ -6,40 +6,38 @@
 #include <random>
 #include <string>
 
-#include "test_toolkit/main_def.h"
-
 using std::cout;
 using std::default_random_engine;
 using std::endl;
 using std::random_device;
 using std::string;
 using std::uniform_int_distribution;
-// @pg_impl:1
+
 string ConstructFromBase(int, int);
 
-// @pg_skeleton
 // @include
-string ConvertBase(const string& s, int b1, int b2) {
-// @pg_impl
-  bool is_negative = s.front() == '-';
-  int x = 0;
-  for (size_t i = (is_negative == true ? 1 : 0); i < s.size(); ++i) {
-    x *= b1;
-    x += isdigit(s[i]) ? s[i] - '0' : s[i] - 'A' + 10;
+string ConvertBase(const string& NumAsString, int b1, int b2) {
+  bool is_negative = NumAsString.front() == '-';
+  int NumAsInt = 0;
+  for (size_t i = (is_negative == true ? 1 : 0); i < NumAsString.size();
+       ++i) {
+    NumAsInt *= b1;
+    NumAsInt += isdigit(NumAsString[i]) ? NumAsString[i] - '0'
+                                        : NumAsString[i] - 'A' + 10;
   }
-  return (is_negative ? "-" : "") + (x == 0 ? "0" : ConstructFromBase(x, b2));
-// @pg_end
+  return (is_negative ? "-" : "") +
+         (NumAsInt == 0 ? "0" : ConstructFromBase(NumAsInt, b2));
 }
-// @pg_end
-// @pg_impl
-string ConstructFromBase(int x, int base) {
-  return x == 0 ? "" : ConstructFromBase(x / base, base) +
-                           (char)(x % base >= 10 ? 'A' + x % base - 10
-                                                 : '0' + x % base);
+
+string ConstructFromBase(int NumAsInt, int base) {
+  return NumAsInt == 0
+             ? ""
+             : ConstructFromBase(NumAsInt / base, base) +
+                   (char)(NumAsInt % base >= 10 ? 'A' + NumAsInt % base - 10
+                                                : '0' + NumAsInt % base);
 }
 // @exclude
-// @pg_end
-// @pg_ignore
+
 string RandIntString(int len) {
   default_random_engine gen((random_device())());
   string ret;
@@ -59,7 +57,7 @@ string RandIntString(int len) {
   return ret;
 }
 
-int MAIN_FUNC(int argc, char* argv[]) {
+int main(int argc, char* argv[]) {
   if (argc == 4) {
     string input(argv[1]);
     cout << ConvertBase(input, atoi(argv[2]), atoi(argv[3])) << endl;
@@ -80,4 +78,3 @@ int MAIN_FUNC(int argc, char* argv[]) {
   }
   return 0;
 }
-// @pg_end

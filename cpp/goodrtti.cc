@@ -1,6 +1,6 @@
-#include <typeinfo>
-#include <iostream>
 #include <cstdlib>
+#include <iostream>
+#include <typeinfo>
 
 using std::cout;
 using std::endl;

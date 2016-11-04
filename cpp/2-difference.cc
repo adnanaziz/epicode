@@ -1,8 +1,8 @@
-#include <iostream>
+#include <algorithm>
 #include <cassert>
 #include <cstdlib>
 #include <ctime>
-#include <algorithm>
+#include <iostream>
 #include <vector>
 
 using namespace std;

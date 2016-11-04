@@ -7,8 +7,8 @@
 #include <iostream>
 #include <queue>
 #include <random>
-#include <string>
 #include <sstream>
+#include <string>
 #include <vector>
 
 using std::array;

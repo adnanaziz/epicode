@@ -1,9 +1,9 @@
 // Copyright (c) 2015 Elements of Programming Interviews. All rights reserved.
 
-#include <iostream>
 #include <functional>
-#include <queue>
+#include <iostream>
 #include <memory>
+#include <queue>
 #include <random>
 #include <string>
 #include <unordered_map>

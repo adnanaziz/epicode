@@ -1,10 +1,10 @@
 // Copyright (c) 2015 Elements of Programming Interviews. All rights reserved.
 
+#include <boost/chrono.hpp>
+#include <boost/thread/scoped_thread.hpp>
 #include <functional>
 #include <iostream>
 #include <string>
-#include <boost/chrono.hpp>
-#include <boost/thread/scoped_thread.hpp>
 
 using std::string;
 using std::bind;

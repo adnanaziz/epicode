@@ -1,12 +1,12 @@
 // Copyright (c) 2015 Elements of Programming Interviews. All rights reserved.
 
+#include <boost/asio.hpp>
+#include <boost/thread/sync_bounded_queue.hpp>
 #include <functional>
 #include <iostream>
 #include <memory>
 #include <thread>
 #include <utility>
-#include <boost/asio.hpp>
-#include <boost/thread/sync_bounded_queue.hpp>
 
 using std::move;
 using std::unique_ptr;

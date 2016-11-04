@@ -8,7 +8,6 @@ import java.util.Objects;
 
 public class BinaryTreePrototypeTemplate {
   // @include
-  // @pg_only_header
   public static class BinaryTreeNode<T> {
     public T data;
     public BinaryTreeNode<T> left, right;
@@ -24,7 +23,6 @@ public class BinaryTreePrototypeTemplate {
       this.left = left;
       this.right = right;
     }
-    // @pg_end
 
     @Override
     public boolean equals(Object o) {
@@ -52,13 +50,10 @@ public class BinaryTreePrototypeTemplate {
     @Override
     public int hashCode() { return Objects.hash(data, left, right); }
     // clang-format on
+
     // Based on https://leetcode.com/faq/#binary-tree
     @Override
     public String toString() {
-      return toList().toString();
-    }
-
-    public List<Object> toList() {
       int nodeId = 0;
       List<Deque<BinaryTreeNode<T>>> levels = new ArrayList<>();
 
@@ -83,19 +78,19 @@ public class BinaryTreePrototypeTemplate {
         }
       }
 
-      List<Object> result = new ArrayList<>();
-      result.add(this.data == null ? (nodeId++) : this.data);
+      List<String> result = new ArrayList<>();
+      result.add(this.data == null ? ("" + nodeId++) : this.data.toString());
       for (int i = 0; i < levels.size() - 1; i++) {
         Deque<BinaryTreeNode<T>> thisLevel = levels.get(i);
         for (BinaryTreeNode<T> node : thisLevel) {
           result.add(node.left != null
-              ? (node.left.data == null ? (nodeId++)
-              : node.left.data)
-              : "#");
+                         ? (node.left.data == null ? ("" + nodeId++)
+                                                   : node.left.data.toString())
+                         : "#");
           result.add(node.right != null ? (node.right.data == null
-              ? (nodeId++)
-              : node.right.data)
-              : "#");
+                                               ? ("" + nodeId++)
+                                               : node.right.data.toString())
+                                        : "#");
         }
       }
 
@@ -108,9 +103,17 @@ public class BinaryTreePrototypeTemplate {
         }
       }
 
-      return result.subList(0, result.size() - numTrailingHashes);
+      StringBuilder sb = new StringBuilder();
+      sb.append("{");
+      for (int i = 0; i < result.size() - numTrailingHashes; i++) {
+        sb.append(result.get(i));
+        if (i < result.size() - numTrailingHashes - 1) {
+          sb.append(",");
+        }
+      }
+      sb.append("}");
+      return sb.toString();
     }
-
 
     private static void testToString() {
       BinaryTreeNode A = new BinaryTreeNode<>(1);
@@ -141,9 +144,7 @@ public class BinaryTreePrototypeTemplate {
       System.out.println(D);
       assert(D.toString().equals("{5,4,7,3,#,2,#,-1,#,9}"));
     }
-
     // @include
-    // @pg_only_header:1
   }
   // @exclude
 }

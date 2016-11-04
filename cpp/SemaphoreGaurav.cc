@@ -1,9 +1,9 @@
-#include <thread>
+#include <assert.h>
 #include <condition_variable>
 #include <iostream>
 #include <mutex>
+#include <thread>
 #include <unistd.h>
-#include <assert.h>
 
 using std::mutex;
 using std::lock_guard;

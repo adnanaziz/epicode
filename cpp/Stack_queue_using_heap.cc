@@ -5,8 +5,8 @@
 #include <limits>
 #include <queue>
 #include <stdexcept>
-#include <vector>
 #include <utility>
+#include <vector>
 
 using std::cout;
 using std::endl;
@@ -20,18 +20,18 @@ using std::vector;
 // @include
 class Stack {
  public:
-  void Push(int x) { max_heap_.emplace(ValueWithRank{timestamp_++, x}); }
+  void Push(int x) { max_heap_.emplace(ValueWithRank{x, timestamp_++}); }
 
   int Pop() {
     if (max_heap_.empty()) {
       throw length_error("empty stack");
     }
-    int val = max_heap_.top().rank;
+    int val = max_heap_.top().value;
     max_heap_.pop();
     return val;
   }
 
-  int Peek() const { return max_heap_.top().rank; }
+  int Peek() const { return max_heap_.top().value; }
 
  private:
   int timestamp_ = 0;
@@ -40,7 +40,7 @@ class Stack {
     int value, rank;
 
     bool operator<(const ValueWithRank& that) const {
-      return value < that.value;
+      return rank < that.rank;
     }
   };
   priority_queue<ValueWithRank, vector<ValueWithRank>> max_heap_;
@@ -49,27 +49,27 @@ class Stack {
 
 class Queue {
  public:
-  void Enqueue(int x) { max_heap_.emplace(ValueWithRank{order_--, x}); }
+  void Enqueue(int x) { max_heap_.emplace(ValueWithRank{x, timestamp_--}); }
 
   int Dequeue() {
     if (max_heap_.empty()) {
       throw length_error("empty queue");
     }
-    int ret = max_heap_.top().rank;
+    int val = max_heap_.top().value;
     max_heap_.pop();
-    return ret;
+    return val;
   }
 
-  int Head() const { return max_heap_.top().rank; }
+  int Head() const { return max_heap_.top().value; }
 
  private:
-  int order_ = 0;
+  int timestamp_ = 0;
 
   struct ValueWithRank {
     int value, rank;
 
     bool operator<(const ValueWithRank& that) const {
-      return value < that.value;
+      return rank < that.rank;
     }
   };
   priority_queue<ValueWithRank, vector<ValueWithRank>> max_heap_;

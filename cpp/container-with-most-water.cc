@@ -7,8 +7,6 @@
 #include <string>
 #include <vector>
 
-#include "test_toolkit/main_def.h"
-
 using std::cout;
 using std::default_random_engine;
 using std::endl;
@@ -19,10 +17,8 @@ using std::stoul;
 using std::uniform_int_distribution;
 using std::vector;
 
-// @pg_skeleton
 // @include
 int GetMaxTrappedWater(const vector<int>& heights) {
-// @pg_impl
   int i = 0, j = heights.size() - 1, max_water = 0;
   while (i < j) {
     int width = j - i;
@@ -36,11 +32,9 @@ int GetMaxTrappedWater(const vector<int>& heights) {
     }
   }
   return max_water;
-// @pg_end
 }
 // @exclude
-// @pg_end
-// @pg_ignore
+
 // O(n^2) checking answer.
 int CheckAns(const vector<int>& heights) {
   int res = 0;
@@ -57,7 +51,7 @@ void SmallTest() {
   assert(48 == GetMaxTrappedWater(A));
 }
 
-int MAIN_FUNC(int argc, char** argv) {
+int main(int argc, char** argv) {
   SmallTest();
   default_random_engine gen((random_device())());
   for (int times = 0; times < 1000; ++times) {
@@ -76,4 +70,3 @@ int MAIN_FUNC(int argc, char** argv) {
   }
   return 0;
 }
-// @pg_end

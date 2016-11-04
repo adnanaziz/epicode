@@ -1,5 +1,6 @@
 // Copyright (c) 2015 Elements of Programming Interviews. All rights reserved.
 
+#include <cassert>
 #include <functional>
 #include <iostream>
 #include <queue>
@@ -7,7 +8,6 @@
 #include <sstream>
 #include <string>
 #include <vector>
-#include <cassert>
 
 using std::cout;
 using std::default_random_engine;

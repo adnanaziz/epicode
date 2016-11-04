@@ -6,8 +6,8 @@
 #include <iostream>
 #include <limits>
 #include <memory>
-#include <vector>
 #include <utility>
+#include <vector>
 
 using std::array;
 using std::cout;

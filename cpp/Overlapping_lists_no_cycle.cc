@@ -1,7 +1,7 @@
 // Copyright (c) 2013 Elements of Programming Interviews. All rights reserved.
 
-#include <iostream>
 #include <cassert>
+#include <iostream>
 #include <memory>
 
 #include "./Linked_list_prototype.h"

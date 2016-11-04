@@ -16,10 +16,9 @@ using std::random_device;
 using std::uniform_int_distribution;
 
 // @include
-const int kNumUnsignBits = 64;
-
 unsigned long ClosestIntSameBitCount(unsigned long x) {
-  for (int i = 0; i < kNumUnsignBits - 1; ++i) {
+  const static int kNumUnsignedBits = 64;
+  for (int i = 0; i < kNumUnsignedBits - 1; ++i) {
     if (((x >> i) & 1) != ((x >> (i + 1)) & 1)) {
       x ^= (1UL << i) | (1UL << (i + 1));  // Swaps bit-i and bit-(i + 1).
       return x;

@@ -1,22 +1,3 @@
-/*
-    @slug
-    merge-sorted-arrays
-
-    @title
-    Merge sorted arrays.
-
-    @problem
-    Write a program that takes as input a set of sorted arrays and computes the
-   union
-    of these arrays as a sorted array. For example, if the input is <3, 5, 7>,
-   <0, 6>,
-    and <0, 6, 28>, then the output is <0, 0, 3, 5, 6, 6, 7, 28>.
-
-    @hint
-    What part of each array is important as you process the inputs?
-
- */
-
 package com.epi;
 
 import java.util.ArrayList;
@@ -40,10 +21,8 @@ public class MergeSortedArrays {
     }
   }
 
-  // @judge-include-display
   public static List<Integer> mergeSortedArrays(
       List<List<Integer>> sortedArrays) {
-    // @judge-exclude-display
     List<Iterator<Integer>> iters = new ArrayList<>(sortedArrays.size());
     for (List<Integer> array : sortedArrays) {
       iters.add(array.iterator());
@@ -71,9 +50,7 @@ public class MergeSortedArrays {
       }
     }
     return result;
-    // @judge-include-display
   }
-  // @judge-exclude-display
   // @exclude
 
   private static void check(List<List<Integer>> S, List<Integer> ans,

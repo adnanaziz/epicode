@@ -115,8 +115,8 @@ public class ImageCompression {
     }
     if (!table.get(lowerLeft).containsKey(upperRight)) {
       if (isMonochromatic(imageSum, lowerLeft, upperRight)) {
-        table.get(lowerLeft)
-            .put(upperRight, new TreeNode(1, lowerLeft, upperRight));
+        table.get(lowerLeft).put(upperRight,
+                                 new TreeNode(1, lowerLeft, upperRight));
       } else {
         TreeNode p = new TreeNode(Integer.MAX_VALUE, lowerLeft, upperRight);
         for (int s = lowerLeft.i; s <= upperRight.i + 1; ++s) {

@@ -7,8 +7,6 @@
 #include <random>
 #include <vector>
 
-#include "test_toolkit/main_def.h"
-
 using std::cout;
 using std::default_random_engine;
 using std::endl;
@@ -19,9 +17,7 @@ using std::uniform_int_distribution;
 using std::vector;
 
 // @include
-// @pg_skeleton
 bool MatrixSearch(const vector<vector<int>>& A, int x) {
-  // @pg_impl
   int row = 0, col = A[0].size() - 1;  // Start from the top-right corner.
   // Keeps searching while there are unclassified rows and columns.
   while (row < A.size() && col >= 0) {
@@ -34,11 +30,9 @@ bool MatrixSearch(const vector<vector<int>>& A, int x) {
     }
   }
   return false;
-  // @pg_end
 }
-// @pg_end
 // @exclude
-// @pg_ignore
+
 static void SimpleTest() {
   vector<vector<int>> A = {{1}};
   assert(!MatrixSearch(A, 0));
@@ -80,7 +74,7 @@ bool BruteForceSearch(const vector<vector<int>>& A, int x) {
   return false;
 }
 
-int MAIN_FUNC(int argc, char* argv[]) {
+int main(int argc, char* argv[]) {
   SimpleTest();
   default_random_engine gen((random_device())());
   for (int times = 0; times < 10000; ++times) {
@@ -108,4 +102,3 @@ int MAIN_FUNC(int argc, char* argv[]) {
   }
   return 0;
 }
-// @pg_end

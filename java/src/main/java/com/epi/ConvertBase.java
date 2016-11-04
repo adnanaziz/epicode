@@ -1,55 +1,31 @@
 package com.epi;
 
-/*
-    @slug
-    base-conversion
-
-    @title
-    Base conversion
-
-    @problem
-    Write a program that performs base conversion.
-
-    @hint
-    What base can you easily convert to and from?
-
- */
-
-// @pg_import:1
 import java.util.Random;
 
 public class ConvertBase {
   // @include
-  // @judge-include-display
-  // @pg_skeleton
-  public static String convertBase(String s, int b1, int b2) {
-    // @judge-exclude-display
-    // @pg_impl
-    boolean isNegative = s.startsWith("-");
-    int x = 0;
-    for (int i = (isNegative ? 1 : 0); i < s.length(); ++i) {
-      x *= b1;
-      x += Character.isDigit(s.charAt(i)) ? s.charAt(i) - '0'
-                                          : s.charAt(i) - 'A' + 10;
+  public static String convertBase(String numAsString, int b1, int b2) {
+    boolean isNegative = numAsString.startsWith("-");
+    int numAsInt = 0;
+    for (int i = (isNegative ? 1 : 0); i < numAsString.length(); ++i) {
+      numAsInt *= b1;
+      numAsInt += Character.isDigit(numAsString.charAt(i))
+                      ? numAsString.charAt(i) - '0'
+                      : numAsString.charAt(i) - 'A' + 10;
     }
-    return (isNegative ? "-" : "") + (x == 0 ? "0" : constructFromBase(x, b2));
-    // @judge-include-display
-    // @pg_end
+    return (isNegative ? "-" : "")
+        + (numAsInt == 0 ? "0" : constructFromBase(numAsInt, b2));
   }
-  // @pg_end
-  // @judge-exclude-display
 
-  // @pg_end
-  // @pg_impl
-  private static String constructFromBase(int x, int base) {
-    return x == 0 ? "" : constructFromBase(x / base, base)
-                             + (char)(x % base >= 10 ? 'A' + x % base - 10
-                                                     : '0' + x % base);
+  private static String constructFromBase(int numAsInt, int base) {
+    return numAsInt == 0
+        ? ""
+        : constructFromBase(numAsInt / base, base)
+              + (char)(numAsInt % base >= 10 ? 'A' + numAsInt % base - 10
+                                             : '0' + numAsInt % base);
   }
-  // @pg_end
   // @exclude
 
-  // @pg_ignore
   public static String randIntString(int len) {
     Random r = new Random();
     StringBuilder ret = new StringBuilder();

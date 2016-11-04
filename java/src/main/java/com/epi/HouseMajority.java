@@ -36,10 +36,10 @@ public class HouseMajority {
     }
 
     if (P.get(r).get(n) == -1.0) {
-      P.get(r)
-          .set(n, houseMajorityHelper(prob, r - 1, n - 1, P) * prob.get(n - 1)
-                      + houseMajorityHelper(prob, r, n - 1, P)
-                            * (1.0 - prob.get(n - 1)));
+      P.get(r).set(n,
+                   houseMajorityHelper(prob, r - 1, n - 1, P) * prob.get(n - 1)
+                       + houseMajorityHelper(prob, r, n - 1, P)
+                             * (1.0 - prob.get(n - 1)));
     }
     return P.get(r).get(n);
   }
@@ -64,7 +64,7 @@ public class HouseMajority {
     }
     printVector(prob);
     double ans = houseMajority(prob, n);
-    assert 0.0 <= ans&& ans <= 1.0;
+    assert 0.0 <= ans && ans <= 1.0;
     System.out.println();
   }
 }

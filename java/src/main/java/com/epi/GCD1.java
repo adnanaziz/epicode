@@ -1,33 +1,10 @@
 package com.epi;
-/*
-    @slug
-    gcd
-
-    @title
-    Compute the GCD
-
-    @problem
-    The greatest common divisor (GCD) of positive integers x and y is the
-   largest integer d
-    such that d divides x evenly, and d divides y evenly, i.e., x mod d = 0 and
-   y mod d = 0.
-    <p>
-
-    Design an efficient algorithm for computing the GCD of two numbers without
-   using
-    multiplication, division or the modulus operators.
-
-    @hint
-    Use case analysis: both even; both odd; one even and one odd.
- */
 
 import java.math.BigInteger;
 
 public class GCD1 {
   // @include
-  // @judge-include-display
   public static long GCD(long x, long y) {
-    // @judge-exclude-display
     if (x == y) {
       return x;
     } else if ((x & 1) == 0 && (y & 1) == 0) { // x and y are even.
@@ -40,9 +17,7 @@ public class GCD1 {
       return GCD(x - y, y);
     }
     return GCD(x, y - x); // Both x and y are odd, and x <= y.
-    // @judge-include-display
   }
-  // @judge-exclude-display
   // @exclude
 
   private static long gcdGolden(long a, long b) {

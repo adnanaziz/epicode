@@ -8,8 +8,8 @@
 #include <queue>
 #include <random>
 #include <string>
-#include <vector>
 #include <utility>
+#include <vector>
 
 using std::array;
 using std::cout;

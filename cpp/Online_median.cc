@@ -1,8 +1,8 @@
 // Copyright (c) 2013 Elements of Programming Interviews. All rights reserved.
 
 #include <cassert>
-#include <iostream>
 #include <functional>
+#include <iostream>
 #include <queue>
 #include <random>
 #include <sstream>

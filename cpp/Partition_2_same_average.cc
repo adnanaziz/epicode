@@ -1,7 +1,7 @@
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
 #include <numeric>
-#include <ctime>
-#include <cstdlib>
 #include <vector>
 #ifdef __clang__
 #include <unordered_set>

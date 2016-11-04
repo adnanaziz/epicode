@@ -2,8 +2,8 @@
 
 #include <cassert>
 #include <iostream>
-#include <queue>
 #include <memory>
+#include <queue>
 #include <vector>
 
 #include "./Binary_tree_prototype.h"
@@ -20,30 +20,28 @@ using std::vector;
 // @include
 vector<vector<int>> BinaryTreeDepthOrder(
     const unique_ptr<BinaryTreeNode<int>>& tree) {
-  queue<BinaryTreeNode<int>*> processing_nodes;
-  processing_nodes.emplace(tree.get());
-  int num_nodes_to_process_at_current_level = processing_nodes.size();
+  queue<BinaryTreeNode<int>*> curr_depth_nodes({tree.get()});
   vector<vector<int>> result;
-  vector<int> one_level;
 
-  while (!processing_nodes.empty()) {
-    auto curr = processing_nodes.front();
-    processing_nodes.pop();
-    --num_nodes_to_process_at_current_level;
-    if (curr) {
-      one_level.emplace_back(curr->data);
+  while (!curr_depth_nodes.empty()) {
+    queue<BinaryTreeNode<int>*> next_depth_nodes;
+    vector<int> this_level;
+    while (!curr_depth_nodes.empty()) {
+      auto curr = curr_depth_nodes.front();
+      curr_depth_nodes.pop();
+      if (curr) {
+        this_level.emplace_back(curr->data);
 
-      // Defer the null checks to the null test above.
-      processing_nodes.emplace(curr->left.get());
-      processing_nodes.emplace(curr->right.get());
-    }
-    // Done with the nodes at the current depth.
-    if (!num_nodes_to_process_at_current_level) {
-      num_nodes_to_process_at_current_level = processing_nodes.size();
-      if (!one_level.empty()) {
-        result.emplace_back(move(one_level));
+        // Defer the null checks to the null test above.
+        next_depth_nodes.emplace(curr->left.get());
+        next_depth_nodes.emplace(curr->right.get());
       }
     }
+
+    if (!this_level.empty()) {
+      result.emplace_back(this_level);
+    }
+    curr_depth_nodes = next_depth_nodes;
   }
   return result;
 }

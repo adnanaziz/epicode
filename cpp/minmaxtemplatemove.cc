@@ -1,5 +1,5 @@
-#include <iostream>
 #include <cassert>
+#include <iostream>
 
 // @include
 template <typename T>

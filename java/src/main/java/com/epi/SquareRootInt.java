@@ -15,11 +15,8 @@ $17$, since $17^2 = 289 < 300$ and $18^2 = 324 > 300$.
 import java.util.Random;
 
 public class SquareRootInt {
-
-  // @pg_skeleton
   // @include
   public static int squareRoot(int k) {
-    // @pg_impl
     long left = 0, right = k;
     // Candidate interval [left, right] where everything before left has
     // square <= k, and everything after right has square > k.
@@ -33,9 +30,7 @@ public class SquareRootInt {
       }
     }
     return (int)left - 1;
-    // @pg_end
   }
-  // @pg_end
   // @exclude
 
   private static void simpleTest() {

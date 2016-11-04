@@ -4,12 +4,12 @@
 #include <cassert>
 #include <functional>
 #include <iostream>
-#include <queue>
 #include <numeric>
+#include <queue>
 #include <random>
 #include <string>
-#include <vector>
 #include <utility>
+#include <vector>
 
 using std::cout;
 using std::default_random_engine;

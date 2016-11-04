@@ -24,11 +24,18 @@ public class BinarySearchCircularArrayWithDuplicates {
     } else if (A.get(mid) < A.get(right)) {
       return searchSmallestHelper(A, left, mid);
     } else { // A.get(mid) == A.get(right)
+      if (A.get(left) < A.get(mid)) {
+        return left;
+      }
       // We cannot eliminate either side so we compare the results from both
       // sides.
       int leftResult = searchSmallestHelper(A, left, mid);
       int rightResult = searchSmallestHelper(A, mid + 1, right);
-      return A.get(rightResult) < A.get(leftResult) ? rightResult : leftResult;
+      if (A.get(leftResult) != A.get(rightResult)) {
+        return A.get(rightResult) < A.get(leftResult) ? rightResult
+                                                      : leftResult;
+      }
+      return right == A.size() - 1 ? rightResult : leftResult;
     }
   }
   // @exclude
@@ -50,8 +57,6 @@ public class BinarySearchCircularArrayWithDuplicates {
     A = Arrays.asList(16, 2, 4, 8);
     assert(1 == searchSmallest(A));
 
-    A = Arrays.asList(2, 2, 2);
-    assert(0 == searchSmallest(A));
     A = Arrays.asList(100, 2, 5, 5);
     assert(1 == searchSmallest(A));
     A = Arrays.asList(1, 2, 3, 3, 3);
@@ -60,6 +65,20 @@ public class BinarySearchCircularArrayWithDuplicates {
     assert(1 == searchSmallest(A));
     A = Arrays.asList(5, 5, 2, 2, 2, 3, 3, 3);
     assert(2 == searchSmallest(A));
+    A = Arrays.asList(0, 0, 4, 0);
+    assert(3 == searchSmallest(A));
+    A = Arrays.asList(0, 0, -1, 0, 0);
+    assert(2 == searchSmallest(A));
+    A = Arrays.asList(-1, 0, 0, 0, 0);
+    assert(0 == searchSmallest(A));
+    A = Arrays.asList(0, -1, 0, 0, 0);
+    assert(1 == searchSmallest(A));
+    A = Arrays.asList(0, 0, -1, 0, 0);
+    assert(2 == searchSmallest(A));
+    A = Arrays.asList(0, 0, 0, -1, 0);
+    assert(3 == searchSmallest(A));
+    A = Arrays.asList(0, 0, 0, 0, -1);
+    assert(4 == searchSmallest(A));
   }
 
   public static void main(String[] args) {

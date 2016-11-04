@@ -9,6 +9,7 @@
 #include <utility>
 #include <vector>
 
+using std::greater;
 using std::next;
 using std::pair;
 using std::priority_queue;
@@ -26,7 +27,8 @@ struct IteratorCurrentAndEnd {
 
 vector<int> MergeSortedArrays(const vector<vector<int>>& sorted_arrays) {
   priority_queue<IteratorCurrentAndEnd, vector<IteratorCurrentAndEnd>,
-                 greater<>> min_heap;
+                 greater<>>
+      min_heap;
 
   for (const vector<int>& sorted_array : sorted_arrays) {
     if (!sorted_array.empty()) {

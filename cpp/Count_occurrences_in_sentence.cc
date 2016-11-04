@@ -1,11 +1,11 @@
 // Copyright (c) 2013 Elements of Programming Interviews. All rights reserved.
 
 #include <algorithm>
+#include <cassert>
 #include <iostream>
 #include <random>
 #include <string>
 #include <unordered_map>
-#include <cassert>
 
 using std::cout;
 using std::default_random_engine;

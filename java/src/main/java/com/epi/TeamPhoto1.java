@@ -63,5 +63,9 @@ public class TeamPhoto1 {
            && !Team.validPlacementExists(t1, t3)
            && Team.validPlacementExists(t3, t2)
            && !Team.validPlacementExists(t1, t2));
+    height = Arrays.asList(1, 4, 2);
+    Team t4 = new Team(height);
+    assert(!Team.validPlacementExists(t4, t3));
+    assert(!Team.validPlacementExists(t3, t4));
   }
 }

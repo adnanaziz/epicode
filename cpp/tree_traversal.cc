@@ -18,8 +18,7 @@ void TreeTraversal(const unique_ptr<BinaryTreeNode<int>>& root) {
     cout << "Preorder: " << root->data << endl;
     TreeTraversal(root->left);
     // Inorder: Processes the root after the traversal of left child and
-    // before
-    // the traversal of right child.
+    // before the traversal of right child.
     cout << "Inorder: " << root->data << endl;
     TreeTraversal(root->right);
     // Postorder: Processes the root after the traversals of left and right

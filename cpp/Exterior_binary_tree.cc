@@ -6,6 +6,7 @@
 #include <memory>
 
 #include "./Binary_tree_prototype.h"
+#include "./Reconstruct_preorder_with_null.h"
 
 using std::cout;
 using std::endl;
@@ -83,7 +84,39 @@ list<int> CreateOutputList(
   return output;
 }
 
+void SimpleTest(void) {
+  // The example in the book.
+  vector<int> A = {314, 6, 271, 28,  0,   561, 3,   17,
+                   6,   2, 1,   401, 641, 257, 271, 28};
+  unique_ptr<BinaryTreeNode<int>> tree = ReconstructPreorder(
+      {&A[0],   &A[1],   &A[2],   &A[3],   nullptr, nullptr, &A[4],
+       nullptr, nullptr, &A[5],   nullptr, &A[6],   &A[7],   nullptr,
+       nullptr, nullptr, &A[8],   &A[9],   nullptr, &A[10],  &A[11],
+       nullptr, &A[12],  nullptr, nullptr, &A[13],  nullptr, nullptr,
+       &A[14],  nullptr, &A[15],  nullptr, nullptr});
+
+  list<int> res = CreateOutputList(ExteriorBinaryTree(tree));
+  list<int> golden = {314, 6, 271, 28, 0, 17, 641, 257, 28, 271, 6};
+  assert(equal(begin(res), end(res), begin(golden), end(golden)));
+
+  tree->left->left = nullptr;
+  res = CreateOutputList(ExteriorBinaryTree(tree));
+  golden = {314, 6, 561, 3, 17, 641, 257, 28, 271, 6};
+  assert(equal(begin(res), end(res), begin(golden), end(golden)));
+
+  tree->right->right = nullptr;
+  res = CreateOutputList(ExteriorBinaryTree(tree));
+  golden = {314, 6, 561, 3, 17, 641, 257, 1, 2, 6};
+  assert(equal(begin(res), end(res), begin(golden), end(golden)));
+
+  tree->right = nullptr;
+  res = CreateOutputList(ExteriorBinaryTree(tree));
+  golden = {314, 6, 561, 3, 17};
+  assert(equal(begin(res), end(res), begin(golden), end(golden)));
+}
+
 int main(int argc, char* argv[]) {
+  SimpleTest();
   //        3
   //    2      5
   //  1  0    4 6

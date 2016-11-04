@@ -21,7 +21,7 @@ public class StackQueueUsingHeap {
   private static class Compare implements Comparator<ValueWithRank> {
     @Override
     public int compare(ValueWithRank o1, ValueWithRank o2) {
-      return Integer.compare(o2.value, o1.value);
+      return Integer.compare(o2.rank, o1.rank);
     }
 
     public static final Compare COMPARE_VALUEWITHRANK = new Compare();
@@ -33,29 +33,29 @@ public class StackQueueUsingHeap {
         DEFAULT_INITIAL_CAPACITY, Compare.COMPARE_VALUEWITHRANK);
 
     public void push(Integer x) {
-      maxHeap.add(new ValueWithRank(timestamp++, x));
+      maxHeap.add(new ValueWithRank(x, timestamp++));
     }
 
     public Integer pop() throws NoSuchElementException {
-      return maxHeap.remove().rank;
+      return maxHeap.remove().value;
     }
 
-    public Integer peek() { return maxHeap.peek().rank; }
+    public Integer peek() { return maxHeap.peek().value; }
   }
   // @exclude
 
   public static class Queue {
-    private int order = 0;
+    private int timestamp = 0;
     private PriorityQueue<ValueWithRank> H
         = new PriorityQueue<>(DEFAULT_INITIAL_CAPACITY, new Compare());
 
-    public void enqueue(Integer x) { H.add(new ValueWithRank(order--, x)); }
+    public void enqueue(Integer x) { H.add(new ValueWithRank(x, timestamp--)); }
 
     public Integer dequeue() throws NoSuchElementException {
-      return H.remove().rank;
+      return H.remove().value;
     }
 
-    public Integer head() { return H.peek().rank; }
+    public Integer head() { return H.peek().value; }
   }
 
   public static void main(String[] args) {

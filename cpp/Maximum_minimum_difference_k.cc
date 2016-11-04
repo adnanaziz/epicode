@@ -1,9 +1,9 @@
+#include <algorithm>
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
 #include <limits>
-#include <ctime>
-#include <cstdlib>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 

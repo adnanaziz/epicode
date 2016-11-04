@@ -126,8 +126,8 @@ public class ClosestStars {
       Collections.sort(closestStars);
       Collections.sort(stars);
       assert(0
-             == stars.get(k - 1)
-                    .compareTo(closestStars.get(closestStars.size() - 1)));
+             == stars.get(k - 1).compareTo(
+                    closestStars.get(closestStars.size() - 1)));
     }
   }
 }

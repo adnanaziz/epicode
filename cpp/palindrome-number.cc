@@ -7,8 +7,6 @@
 #include <string>
 #include <vector>
 
-#include "test_toolkit/main_def.h"
-
 using std::cout;
 using std::default_random_engine;
 using std::endl;
@@ -19,9 +17,7 @@ using std::uniform_int_distribution;
 using std::vector;
 
 // @include
-// @pg_skeleton
 bool IsPalindromeNumber(int x) {
-  // @pg_impl
   if (x < 0) {
     return false;
   }
@@ -37,11 +33,9 @@ bool IsPalindromeNumber(int x) {
     msd_mask /= 100;
   }
   return true;
-  // @pg_end
 }
-// @pg_end
 // @exclude
-// @pg_ignore
+
 bool CheckAns(int x) {
   auto s = to_string(x);
   for (size_t i = 0, j = s.size() - 1; i < j; ++i, --j) {
@@ -52,7 +46,7 @@ bool CheckAns(int x) {
   return true;
 }
 
-int MAIN_FUNC(int argc, char** argv) {
+int main(int argc, char** argv) {
   default_random_engine gen((random_device())());
   int x;
   if (argc == 2) {
@@ -68,4 +62,3 @@ int MAIN_FUNC(int argc, char** argv) {
   }
   return 0;
 }
-// @pg_end

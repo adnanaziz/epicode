@@ -47,7 +47,7 @@ unique_ptr<BinaryTreeNode<int>> Clone(
     const unique_ptr<BinaryTreeNode<int>>& tree) {
   return tree ? make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{
                     0, Clone(tree->left), Clone(tree->right)})
-              : null;
+              : nullptr;
 }
 // @exclude
 

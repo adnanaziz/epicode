@@ -1,9 +1,9 @@
-#include <iostream>
+#include <algorithm>
 #include <cstdlib>
 #include <ctime>
-#include <vector>
-#include <algorithm>
+#include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 

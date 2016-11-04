@@ -1,31 +1,4 @@
 package com.epi;
-/*
-    @slug
-    paint-matrix
-
-    @title
-    Painting a Boolean matrix
-
-    @problem
-    Let A be a Boolean 2D array encoding a black-and-white image. The entry
-    A(a, b) can be viewed as encoding the color at location (a, b).
-    Define the region associated with an entry to be all entries
-    for which there exists a path from the initial entry to those entries
-    all of which are the same color.
-    <p>
-
-    Implement a routine that takes an Boolean array A together with an entry (x,
-   y)
-    and flips the color of the region associated with (x, y). See Figure 15.5
-   for an example
-    of flipping.
-
-    <img src="/paint-matrix.png"></img>
-
-    @hint
-    Solve this conceptually, then think about implementation optimizations.
-
- */
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -46,9 +19,7 @@ public class PaintingIterative {
     }
   }
 
-  // @judge-include-display
   public static void flipColor(List<List<Boolean>> A, int x, int y) {
-    // @judge-exclude-display
     final int[][] DIRS = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
     boolean color = A.get(x).get(y);
 
@@ -69,9 +40,7 @@ public class PaintingIterative {
       }
       q.remove();
     }
-    // @judge-include-display
   }
-  // @judge-exclude-display
   // @exclude
 
   private static void check(List<List<Boolean>> input, int i, int j,

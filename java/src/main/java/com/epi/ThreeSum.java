@@ -1,30 +1,4 @@
 package com.epi;
-/*
-    @slug
-    3sum
-
-    @title
-    The three sum problem.
-
-    @problem
-    Design an algorithm that takes as input an array and a number, and
-   determines if
-    there are three entries in A (not necessarily distinct) which add up to the
-   specified
-    number. <p>
-
-    For example, if the array is <2, 3, 5, 7, 11> then there are three entries
-   in the
-    56 array which add up to 21 (3, 7, 11 and 5, 5, 11). (Note that we can use 5
-   twice, since
-    the problem statement said we can use the same entry more than once.)
-   However, no
-    three entries add up to 9.
-
-    @hint
-    How would you check if A[i] is part of a triple that 3-creates T?
-
- */
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,9 +8,7 @@ import java.util.Random;
 
 public class ThreeSum {
   // @include
-  // @judge-include-display
   public static boolean hasThreeSum(List<Integer> A, int t) {
-    // @judge-exclude-display
     Collections.sort(A);
     for (Integer a : A) {
       // Finds if the sum of two numbers in A equals to t - a.
@@ -45,9 +17,7 @@ public class ThreeSum {
       }
     }
     return false;
-    // @judge-include-display
   }
-  // @judge-exclude-display
   // @exclude
 
   // n^3 solution.

@@ -1,30 +1,5 @@
 package com.epi;
 
-/*
-    @slug
-    first-occurence-of-k
-
-    @title
-    Search a sorted array for first occurrence of a key
-
-    @problem
-    Write a method that takes a sorted array and a key and returns the index of
-   the
-    first occurrence of that key in the array. For example, when applied to the
-   array in
-    the figure, your algorithm should return 3 if the given key is 108; if it is
-   285, your
-    algorithm should return 6.
-    <p>
-
-    <img src="/bin-search-first.png" width="500px"></img>
-    <p>
-
-    @hint
-    What happens when every entry equals k? Don't stop when you first see k.
-
- */
-
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,9 +8,7 @@ import java.util.Random;
 
 public class BinarySearchFirstK {
   // @include
-  // @judge-include-display
   public static int searchFirstOfK(List<Integer> A, int k) {
-    // @judge-exclude-display
     int left = 0, right = A.size() - 1, result = -1;
     // A.subList(left, right + 1) is the candidate set.
     while (left <= right) {
@@ -51,9 +24,7 @@ public class BinarySearchFirstK {
       }
     }
     return result;
-    // @judge-include-display
   }
-  // @judge-exclude-display
   // @exclude
 
   private static int checkAns(List<Integer> A, int k) {

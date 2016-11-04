@@ -4,8 +4,8 @@
 #define SOLUTIONS_SMALLEST_SUBARRAY_COVERING_SET_STREAM_H_
 
 #include <list>
-#include <string>
 #include <sstream>
+#include <string>
 #include <unordered_map>
 #include <utility>
 #include <vector>

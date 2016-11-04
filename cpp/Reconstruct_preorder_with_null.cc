@@ -1,54 +1,23 @@
-// Copyright (c) 2013 Elements of Programming Interviews. All rights reserved.
+// Copyright (c) 2016 Elements of Programming Interviews. All rights reserved.
 
 #include <cassert>
 #include <iostream>
 #include <memory>
 #include <random>
-#include <stack>
 #include <vector>
 
 #include "./Binary_tree_prototype.h"
 #include "./Binary_tree_utils.h"
+#include "./Reconstruct_preorder_with_null.h"
 
 using std::cout;
 using std::default_random_engine;
 using std::endl;
 using std::make_unique;
 using std::random_device;
-using std::stack;
 using std::uniform_int_distribution;
 using std::unique_ptr;
 using std::vector;
-
-unique_ptr<BinaryTreeNode<int>> ReconstructPreorderHelper(const vector<int*>&,
-                                                          int*);
-
-// @include
-unique_ptr<BinaryTreeNode<int>> ReconstructPreorder(
-    const vector<int*>& preorder) {
-  int subtree_idx_pointer = 0;
-  return ReconstructPreorderHelper(preorder, &subtree_idx_pointer);
-}
-
-// Reconstructs the subtree that is rooted at subtreeIdx.
-unique_ptr<BinaryTreeNode<int>> ReconstructPreorderHelper(
-    const vector<int*>& preorder, int* subtree_idx_pointer) {
-  int& subtree_idx = *subtree_idx_pointer;
-  int* subtree_key = preorder[subtree_idx];
-  ++subtree_idx;
-  if (subtree_key == nullptr) {
-    return nullptr;
-  }
-  // Note that ReconstructPreorderHelper updates subtree_idx. So the order of
-  // following two calls are critical.
-  auto left_subtree =
-      ReconstructPreorderHelper(preorder, subtree_idx_pointer);
-  auto right_subtree =
-      ReconstructPreorderHelper(preorder, subtree_idx_pointer);
-  return make_unique<BinaryTreeNode<int>>(BinaryTreeNode<int>{
-      *subtree_key, move(left_subtree), move(right_subtree)});
-}
-// @exclude
 
 template <typename T>
 void GenPreorderWithNull(const unique_ptr<BinaryTreeNode<T>>& n,
@@ -63,7 +32,7 @@ void GenPreorderWithNull(const unique_ptr<BinaryTreeNode<T>>& n,
   GenPreorderWithNull(n->right, p);
 }
 
-static void simpleTest() {
+static void SimpleTest() {
   int A[] = {1, 2, 3};
   vector<int*> preorder = {A, nullptr, nullptr};
   auto result = ReconstructPreorder(preorder);
@@ -87,7 +56,7 @@ static void simpleTest() {
 }
 
 int main(int argc, char* argv[]) {
-  simpleTest();
+  SimpleTest();
   default_random_engine gen((random_device())());
   // Random test 1000 times.
   for (int times = 0; times < 1000; ++times) {
@@ -104,8 +73,6 @@ int main(int argc, char* argv[]) {
     GenPreorderWithNull(root, &p);
     auto x = unique_ptr<BinaryTreeNode<int>>(ReconstructPreorder(p));
     assert(is_two_binary_trees_equal(root, x));
-    delete_binary_tree(&root);
-    delete_binary_tree(&x);
   }
   return 0;
 }

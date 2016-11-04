@@ -4,12 +4,11 @@ import java.util.Random;
 
 public class ClosestIntSameBits {
   // @include
-  static final int NUM_UNSIGN_BITS = 63;
-
   public static long closestIntSameBitCount(long x) {
+    final int NUM_UNSIGNED_BITS = 63;
     // x is assumed to be non-negative so we know the leading bit is 0. We
     // restrict to our attention to 63 LSBs.
-    for (int i = 0; i < NUM_UNSIGN_BITS - 1; ++i) {
+    for (int i = 0; i < NUM_UNSIGNED_BITS - 1; ++i) {
       if ((((x >>> i) & 1) != ((x >>> (i + 1)) & 1))) {
         x ^= (1L << i) | (1L << (i + 1)); // Swaps bit-i and bit-(i + 1).
         return x;

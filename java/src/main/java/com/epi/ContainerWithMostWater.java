@@ -1,6 +1,5 @@
 package com.epi;
 
-// @pg_import:4
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,9 +7,7 @@ import java.util.Random;
 
 public class ContainerWithMostWater {
   // @include
-  // @pg_skeleton
   public static int getMaxTrappedWater(List<Integer> heights) {
-    // @pg_impl
     int i = 0, j = heights.size() - 1, maxWater = 0;
     while (i < j) {
       int width = j - i;
@@ -26,9 +23,7 @@ public class ContainerWithMostWater {
       }
     }
     return maxWater;
-    // @pg_end
   }
-  // @pg_end
   // @exclude
 
   // O(n^2) checking answer.

@@ -15,7 +15,7 @@ import java.util.Set;
 
 public class PartitionArray {
   // @include
-  private static class Person { 
+  private static class Person {
     public Integer age;
     public String name;
 

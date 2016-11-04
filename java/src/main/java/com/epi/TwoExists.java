@@ -21,14 +21,14 @@ public class TwoExists {
 
   public static boolean isDeadlocked(List<GraphVertex> G) {
     for (GraphVertex vertex : G) {
-      if (vertex.color == GraphVertex.Color.WHITE && hasCycle(vertex, null)) {
+      if (vertex.color == GraphVertex.Color.WHITE && hasCycle(vertex)) {
         return true;
       }
     }
     return false;
   }
 
-  private static boolean hasCycle(GraphVertex cur, GraphVertex pre) {
+  private static boolean hasCycle(GraphVertex cur) {
     // Visiting a gray vertex means a cycle.
     if (cur.color == GraphVertex.Color.GRAY) {
       return true;
@@ -37,8 +37,8 @@ public class TwoExists {
     cur.color = GraphVertex.Color.GRAY; // Marks current vertex as a gray one.
     // Traverse the neighbor vertices.
     for (GraphVertex next : cur.edges) {
-      if (next != pre && next.color != GraphVertex.Color.BLACK) {
-        if (hasCycle(next, cur)) {
+      if (next.color != GraphVertex.Color.BLACK) {
+        if (hasCycle(next)) {
           return true;
         }
       }
@@ -48,16 +48,14 @@ public class TwoExists {
   }
   // @exclude
 
-  private static boolean hasCycleExclusion(GraphVertex cur, GraphVertex prev) {
+  private static boolean hasCycleExclusion(GraphVertex cur) {
     if (cur.color == GraphVertex.Color.BLACK) {
       return true;
     }
     cur.color = GraphVertex.Color.BLACK;
     for (GraphVertex next : cur.edges) {
-      if (next != prev) {
-        if (hasCycleExclusion(next, cur)) {
-          return true;
-        }
+      if (hasCycleExclusion(next)) {
+        return true;
       }
     }
     return false;
@@ -71,7 +69,7 @@ public class TwoExists {
     }
 
     for (GraphVertex g : G) {
-      if (hasCycleExclusion(g, null)) {
+      if (hasCycleExclusion(g)) {
         return true;
       }
       // Reset color to white.
@@ -80,6 +78,20 @@ public class TwoExists {
       }
     }
     return false;
+  }
+
+  private static void testTwoNodesCycle() {
+    int n = 2;
+    List<GraphVertex> G = new ArrayList<>(n);
+    for (int i = 0; i < n; i++) {
+      G.add(new GraphVertex());
+    }
+    G.get(0).edges.add(G.get(1));
+    G.get(1).edges.add(G.get(0));
+    boolean result = isDeadlocked(G);
+    System.out.println(result);
+    assert(checkAnswer(G) == result);
+    assert(result);
   }
 
   private static void testDirectedCycle() {

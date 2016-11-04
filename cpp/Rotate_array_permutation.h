@@ -6,10 +6,11 @@
 #include <algorithm>
 #include <vector>
 
-#include "./GCD.h"
+#include "./GCD2.h"
 
 using std::swap;
 using std::vector;
+using GCD2::GCD;
 
 namespace rotate_array1 {
 
@@ -18,6 +19,10 @@ void ApplyCyclicPermutation(int, int, int, vector<int>*);
 // @include
 void RotateArray(int rotate_amount, vector<int>* A_ptr) {
   rotate_amount %= A_ptr->size();
+  if (!rotate_amount) {
+    return;
+  }
+
   int num_cycles = GCD(A_ptr->size(), rotate_amount);
   int cycle_length = A_ptr->size() / num_cycles;
 

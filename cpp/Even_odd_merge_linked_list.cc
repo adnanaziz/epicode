@@ -53,7 +53,7 @@ shared_ptr<ListNode<int>> EvenOddMerge(const shared_ptr<ListNode<int>>& L) {
   }
 
   auto even_dummy_head =
-      make_shared<ListNode<int>>(ListNode<int>{0, nullptr}),
+           make_shared<ListNode<int>>(ListNode<int>{0, nullptr}),
        odd_dummy_head = make_shared<ListNode<int>>(ListNode<int>{0, nullptr});
   array<shared_ptr<ListNode<int>>, 2> tails = {even_dummy_head,
                                                odd_dummy_head};

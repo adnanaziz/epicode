@@ -1,9 +1,9 @@
 // Copyright (c) 2015 Elements of Programming Interviews. All rights reserved.
 
+#include <boost/asio.hpp>
 #include <iostream>
 #include <memory>
 #include <thread>
-#include <boost/asio.hpp>
 
 using std::shared_ptr;
 using std::cout;

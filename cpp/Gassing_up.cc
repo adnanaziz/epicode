@@ -7,8 +7,6 @@
 #include <utility>
 #include <vector>
 
-#include "test_toolkit/main_def.h"
-
 using std::cout;
 using std::default_random_engine;
 using std::endl;
@@ -17,14 +15,12 @@ using std::uniform_int_distribution;
 using std::vector;
 
 // @include
-// @pg_header:1
 const int kMPG = 20;
+
 // gallons[i] is the amount of gas in city i, and distances[i] is the distance
 // city i to the next city.
-// @pg_skeleton
 size_t FindAmpleCity(const vector<int>& gallons,
                      const vector<int>& distances) {
-// @pg_impl
   int remaining_gallons = 0;
   struct CityAndRemainingGas {
     int city = 0, remaining_gallons = 0;
@@ -38,11 +34,9 @@ size_t FindAmpleCity(const vector<int>& gallons,
     }
   }
   return city_remaining_gallons_pair.city;
-// @pg_end
 }
-// @pg_end
 // @exclude
-// @pg_ignore
+
 void CheckAns(const vector<int>& gallons, const vector<int>& distances,
               size_t c) {
   size_t s = c;
@@ -66,7 +60,7 @@ void SmallTest() {
   CheckAns(gallons, distances, ans);
 }
 
-int MAIN_FUNC(int argc, char* argv[]) {
+int main(int argc, char* argv[]) {
   SmallTest();
   default_random_engine gen((random_device())());
   for (int times = 0; times < 1000; ++times) {
@@ -102,4 +96,3 @@ int MAIN_FUNC(int argc, char* argv[]) {
   }
   return 0;
 }
-// @pg_end

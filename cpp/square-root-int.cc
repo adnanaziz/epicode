@@ -8,8 +8,6 @@
 #include <random>
 #include <string>
 
-#include "test_toolkit/main_def.h"
-
 using std::cout;
 using std::default_random_engine;
 using std::endl;
@@ -19,9 +17,7 @@ using std::stoi;
 using std::uniform_int_distribution;
 
 // @include
-// @pg_skeleton
 int SquareRoot(int k) {
-  // @pg_impl
   int left = 0, right = k;
   // Candidate interval [left, right] where everything before left has
   // square <= k, and everything after right has square > k.
@@ -35,11 +31,9 @@ int SquareRoot(int k) {
     }
   }
   return left - 1;
-  // @pg_end
 }
-// @pg_end
 // @exclude
-// @pg_ignore
+
 static void SimpleTest() {
   assert(SquareRoot(0) == 0);
   assert(SquareRoot(1) == 1);
@@ -53,7 +47,7 @@ static void SimpleTest() {
   assert(SquareRoot(numeric_limits<int>::max()) == 46340);
 }
 
-int MAIN_FUNC(int argc, char** argv) {
+int main(int argc, char** argv) {
   SimpleTest();
   int x;
   if (argc == 2) {
@@ -72,4 +66,3 @@ int MAIN_FUNC(int argc, char** argv) {
   }
   return 0;
 }
-// @pg_end

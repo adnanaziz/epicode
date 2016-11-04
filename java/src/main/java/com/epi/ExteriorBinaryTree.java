@@ -66,6 +66,34 @@ public class ExteriorBinaryTree {
     return result;
   }
 
+  private static void simpleTest() {
+    // The example in the book.
+    BinaryTreeNode<Integer> tree
+        = ReconstructPreorderWithNull.reconstructPreorder(Arrays.asList(
+            314, 6, 271, 28, null, null, 0, null, null, 561, null, 3, 17, null,
+            null, null, 6, 2, null, 1, 401, null, 641, null, null, 257, null,
+            null, 271, null, 28, null, null));
+    List<Integer> res = createOutputList(exteriorBinaryTree(tree));
+    List<Integer> golden
+        = Arrays.asList(314, 6, 271, 28, 0, 17, 641, 257, 28, 271, 6);
+    assert(golden.equals(res));
+
+    tree.left.left = null;
+    res = createOutputList(exteriorBinaryTree(tree));
+    golden = Arrays.asList(314, 6, 561, 3, 17, 641, 257, 28, 271, 6);
+    assert(golden.equals(res));
+
+    tree.right.right = null;
+    res = createOutputList(exteriorBinaryTree(tree));
+    golden = Arrays.asList(314, 6, 561, 3, 17, 641, 257, 1, 2, 6);
+    assert(golden.equals(res));
+
+    tree.right = null;
+    res = createOutputList(exteriorBinaryTree(tree));
+    golden = Arrays.asList(314, 6, 561, 3, 17);
+    assert(golden.equals(res));
+  }
+
   public static void main(String[] args) {
     //       3
     //    2      5

@@ -1,25 +1,4 @@
 package com.epi;
-/*
-    @slug
-    powerset
-
-    @title
-    Compute the power set.
-
-    @problem
-    The power set of a set S is the set of all subsets of S, including both the
-   empty set {}
-    and S itself. The power set of {0, 1, 2} is graphically illustrated in the
-   figure.
-    <p>
-
-    <img src="/powerset.png" width=400px></img>
-
-    @hint
-    There are 2^n subsets for a given set S of size n. There are 2^k k-bit
-   words.
-
- */
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,9 +12,7 @@ public class PowerSet {
   // @include
   private static final double LOG_2 = Math.log(2);
 
-  // @judge-include-display
   public static List<List<Integer>> generatePowerSet(List<Integer> inputSet) {
-    // @judge-exclude-display
     List<List<Integer>> powerSet = new ArrayList<>();
     for (int intForSubset = 0; intForSubset < (1 << inputSet.size());
          ++intForSubset) {
@@ -49,9 +26,7 @@ public class PowerSet {
       powerSet.add(subset);
     }
     return powerSet;
-    // @judge-include-display
   }
-  // @judge-exclude-display
   // @exclude
 
   private static void check(List<Integer> input, List<List<Integer>> expected) {

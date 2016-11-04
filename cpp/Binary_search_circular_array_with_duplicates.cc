@@ -33,11 +33,17 @@ int SearchSmallestHelper(const vector<int>& A, int left, int right) {
   } else if (A[mid] < A[right]) {
     return SearchSmallestHelper(A, left, mid);
   } else {  // A[mid] == A[right].
+    if (A[left] < A[mid]) {
+      return left;
+    }
     // We cannot eliminate either side so we compare the results from both
     // sides.
     int left_result = SearchSmallestHelper(A, left, mid);
     int right_result = SearchSmallestHelper(A, mid + 1, right);
-    return A[right_result] < A[left_result] ? right_result : left_result;
+    if (A[left_result] != A[right_result]) {
+      return A[right_result] < A[left_result] ? right_result : left_result;
+    }
+    return right == A.size() - 1 ? right_result : left_result;
   }
 }
 // @exclude
@@ -48,11 +54,9 @@ static void SimpleTest() {
   assert(1 == SearchSmallest(A));
   A = {0, 2, 4, 8};
   assert(0 == SearchSmallest(A));
-  A[0] = 16;
+  A = {16, 2, 4, 8};
   assert(1 == SearchSmallest(A));
 
-  A = {2, 2, 2};
-  assert(0 == SearchSmallest(A));
   A = {100, 2, 5, 5};
   assert(1 == SearchSmallest(A));
   A = {1, 2, 3, 3, 3};
@@ -61,6 +65,18 @@ static void SimpleTest() {
   assert(1 == SearchSmallest(A));
   A = {5, 5, 2, 2, 2, 3, 3, 3};
   assert(2 == SearchSmallest(A));
+  A = {0, 0, 4, 0};
+  assert(3 == SearchSmallest(A));
+  A = {-1, 0, 0, 0, 0};
+  assert(0 == SearchSmallest(A));
+  A = {0, -1, 0, 0, 0};
+  assert(1 == SearchSmallest(A));
+  A = {0, 0, -1, 0, 0};
+  assert(2 == SearchSmallest(A));
+  A = {0, 0, 0, -1, 0};
+  assert(3 == SearchSmallest(A));
+  A = {0, 0, 0, 0, -1};
+  assert(4 == SearchSmallest(A));
 }
 
 int main(int argc, char* argv[]) {

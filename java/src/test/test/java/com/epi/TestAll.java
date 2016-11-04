@@ -382,6 +382,11 @@ public class TestAll {
   }
 
   @Test
+  public void FibonacciIterative() {
+    FibonacciIterative.main(ARGS);
+  }
+
+  @Test
   public void FindElementAppearsOnce() {
     FindElementAppearsOnce.main(ARGS);
   }
@@ -430,11 +435,6 @@ public class TestAll {
   public void GaussianPrimes() {
     String[] args = { "35" };
     GaussianPrimes.main(args);
-  }
-
-  @Test
-  public void GeneratingABSqrt2() {
-    GeneratingABSqrt2.main(ARGS);
   }
 
   @Test
@@ -1501,9 +1501,8 @@ public class TestAll {
   }
 
   @Test
-  public void GeneratingABSqrt2Improved() {
-    String[] args = { "100" };
-    GeneratingABSqrt2Improved.main(args);
+  public void GeneratingABSqrt2() {
+    GeneratingABSqrt2.main(ARGS);
   }
 
   @Test

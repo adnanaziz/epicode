@@ -1,6 +1,5 @@
 package com.epi;
 
-// @pg_import:4
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -9,7 +8,6 @@ import java.util.List;
 public class SudokuCheck {
   // @include
   // Check if a partially filled matrix has any conflicts.
-  // @pg_harness
   public static boolean isValidSudoku(List<List<Integer>> partialAssignment) {
     // Check row constraints.
     for (int i = 0; i < partialAssignment.size(); ++i) {
@@ -61,7 +59,6 @@ public class SudokuCheck {
     return false;
   }
   // @exclude
-  // @pg_end
 
   public static void main(String[] args) {
     List<List<Integer>> A

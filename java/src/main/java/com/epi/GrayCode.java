@@ -9,10 +9,7 @@ public class GrayCode {
   // @include
   public static List<Integer> grayCode(int numBits) {
     if (numBits == 0) {
-      return Arrays.asList(0);
-    }
-    if (numBits == 1) {
-      return Arrays.asList(0, 1);
+      return new ArrayList<>(Arrays.asList(0));
     }
 
     // These implicitly begin with 0 at bit-index (numBits - 1).
@@ -21,15 +18,11 @@ public class GrayCode {
     // Now, add a 1 at bit-index (numBits - 1) to all entries in
     // grayCodeNumBitsMinus1.
     int leadingBitOne = 1 << (numBits - 1);
-
     // Process in reverse order to achieve reflection of grayCodeNumBitsMinus1.
-    List<Integer> reflection = new ArrayList<>();
     for (int i = grayCodeNumBitsMinus1.size() - 1; i >= 0; --i) {
-      reflection.add(leadingBitOne | grayCodeNumBitsMinus1.get(i));
+      grayCodeNumBitsMinus1.add(leadingBitOne | grayCodeNumBitsMinus1.get(i));
     }
-    List<Integer> result = new ArrayList<>(grayCodeNumBitsMinus1);
-    result.addAll(reflection);
-    return result;
+    return grayCodeNumBitsMinus1;
   }
   // @exclude
 

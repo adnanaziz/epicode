@@ -44,9 +44,9 @@ public class ViewFromAbove {
         return false;
       }
       LineSegment that = (LineSegment)obj;
-      return this == obj ? true : left == that.left && right == that.right
-                                      && color == that.color
-                                      && height == that.height;
+      return this == obj ? true
+                         : left == that.left && right == that.right
+                               && color == that.color && height == that.height;
     }
     // @include
   }

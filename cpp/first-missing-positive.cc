@@ -8,8 +8,6 @@
 #include <string>
 #include <vector>
 
-#include "test_toolkit/main_def.h"
-
 using std::cout;
 using std::default_random_engine;
 using std::endl;
@@ -20,7 +18,7 @@ using std::stoul;
 using std::swap;
 using std::uniform_int_distribution;
 using std::vector;
-// @pg_ignore
+
 int CheckAns(vector<int> A) {
   sort(A.begin(), A.end());
   int target = 1;
@@ -35,15 +33,10 @@ int CheckAns(vector<int> A) {
   }
   return target;
 }
-// @pg_end
-
-//FIXME(KROILOV) double declaration of i
 
 // @include
 // A is passed by value argument, since we change it.
-// @pg_skeleton
 int FindFirstMissingPositive(vector<int> A) {
-// @pg_impl
   // Record which values are present by writing A[i] to index A[i] - 1 if A[i]
   // is between 1 and A.size(), inclusive. We save the value at index
   // A[i] - 1 by swapping it with the entry at i. If A[i] is negative or
@@ -66,12 +59,10 @@ int FindFirstMissingPositive(vector<int> A) {
     }
   }
   return A.size() + 1;
-// @pg_end
 }
 // @exclude
-// @pg_end
-// @pg_ignore
-int MAIN_FUNC(int argc, char *argv[]) {
+
+int main(int argc, char *argv[]) {
   default_random_engine gen((random_device())());
   for (int times = 0; times < 1000; ++times) {
     size_t n;
@@ -94,4 +85,3 @@ int MAIN_FUNC(int argc, char *argv[]) {
   }
   return 0;
 }
-// @pg_end

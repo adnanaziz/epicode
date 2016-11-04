@@ -1,8 +1,8 @@
 // Copyright (c) 2013 Elements of Programming Interviews. All rights reserved.
 
 #include <algorithm>
-#include <iostream>
 #include <cassert>
+#include <iostream>
 #include <random>
 #include <string>
 

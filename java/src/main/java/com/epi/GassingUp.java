@@ -24,16 +24,12 @@ ample city, if one exists?
 
 */
 
-// @pg_import:4
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-
 public class GassingUp {
-  // @pg_end
-  // @pg_impl
   // @include
   private static class CityAndRemainingGas {
     public Integer city;
@@ -45,14 +41,12 @@ public class GassingUp {
     }
   }
 
-  public static final int MPG = 20;
-  // @pg_end
+  private static final int MPG = 20;
+
   // gallons[i] is the amount of gas in city i, and distances[i] is the distance
   // city i to the next city.
-  // @pg_skeleton
   public static int findAmpleCity(List<Integer> gallons,
                                   List<Integer> distances) {
-    // @pg_impl
     int remainingGallons = 0;
     CityAndRemainingGas min = new CityAndRemainingGas(0, 0);
     final int numCities = gallons.size();
@@ -63,12 +57,9 @@ public class GassingUp {
       }
     }
     return min.city;
-    // @pg_end
   }
-  // @pg_end
   // @exclude
 
-  // @pg_ignore
   private static void checkAns(List<Integer> gallons, List<Integer> distances,
                                int c) {
     int s = c;

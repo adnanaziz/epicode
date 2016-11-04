@@ -4,11 +4,11 @@
 #else
 #include <tr1/unordered_set>
 #endif
-#include <cassert>
-#include <vector>
-#include <ctime>
-#include <cstdlib>
 #include <algorithm>
+#include <cassert>
+#include <cstdlib>
+#include <ctime>
+#include <vector>
 
 using namespace std;
 #ifndef __clang__

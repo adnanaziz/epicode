@@ -4,8 +4,8 @@
 #include <cassert>
 #include <iostream>
 #include <limits>
-#include <string>
 #include <random>
+#include <string>
 
 using std::bitset;
 using std::cout;

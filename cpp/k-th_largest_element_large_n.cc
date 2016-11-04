@@ -2,8 +2,8 @@
 
 #include <algorithm>
 #include <cassert>
-#include <iostream>
 #include <functional>
+#include <iostream>
 #include <random>
 #include <sstream>
 #include <vector>
@@ -29,7 +29,7 @@ int FindKthLargestUnknownLength(istringstream* sin, int k) {
       // the median.
       nth_element(candidates.begin(), candidates.begin() + k - 1,
                   candidates.end(), greater<int>());
-      // Reset idx to keep just the k largest elements seen so far.
+      // Resize to keep just the k largest elements seen so far.
       candidates.resize(k);
     }
   }

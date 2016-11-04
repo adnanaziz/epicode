@@ -12,17 +12,15 @@ public class KthLargestElementLargeN {
   public static int findKthLargestUnknownLength(Iterator<Integer> sequence,
                                                 int k) {
     ArrayList<Integer> candidates = new ArrayList<>(2 * k - 1);
-    int idx = 0;
     while (sequence.hasNext()) {
       int x = sequence.next();
-      idx++;
       candidates.add(x);
-      if (idx == 2 * k - 1) {
+      if (candidates.size() == 2 * k - 1) {
         // Reorders elements about median with larger elements appearing before
         // the median.
         OrderStatistic.findKthLargest(candidates, k);
-        // Reset idx to keep just the k largest elements seen so far.
-        idx = k;
+        // Resize to keep just the k largest elements seen so far.
+        candidates.subList(k, candidates.size()).clear();
       }
     }
     // Finds the k-th largest element in candidates.

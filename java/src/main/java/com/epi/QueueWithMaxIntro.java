@@ -24,13 +24,13 @@ public class QueueWithMaxIntro {
   }
   // @exclude
 
-  private static void assertDequeue(QueueWithMax q, Integer t) {
+  private static void assertDequeue(QueueWithMaxIntro q, Integer t) {
     Integer dequeue = q.dequeue();
     assert(t.equals(dequeue));
   }
 
   private static void simpleTest() {
-    QueueWithMax Q = new QueueWithMax();
+    QueueWithMaxIntro Q = new QueueWithMaxIntro();
     Q.enqueue(11);
     Q.enqueue(2);
     assert(11 == Q.max());
@@ -67,7 +67,7 @@ public class QueueWithMaxIntro {
 
   public static void main(String[] args) {
     simpleTest();
-    QueueWithMax Q = new QueueWithMax();
+    QueueWithMaxIntro Q = new QueueWithMaxIntro();
     Q.enqueue(1);
     Q.enqueue(2);
     assert(2 == Q.max());

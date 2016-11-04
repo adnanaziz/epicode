@@ -123,19 +123,19 @@ public class LineMostPoints {
     // Return the line with most points have passed.
 
     //@include
-    return Collections.max(table.entrySet(),
-                           new Comparator<Map.Entry<Line, Set<Point>>>() {
-                             @Override
-                             public int compare(
-                                 Map.Entry<Line, Set<Point>> e1,
-                                 Map.Entry<Line, Set<Point>> e2) {
-                               if (e1 != null && e2 != null) {
-                                 return Integer.compare(e1.getValue().size(),
-                                                        e2.getValue().size());
-                               }
-                               return (e1 != null ? 1 : -1);
-                             }
-                           })
+    return Collections
+        .max(table.entrySet(),
+             new Comparator<Map.Entry<Line, Set<Point>>>() {
+               @Override
+               public int compare(Map.Entry<Line, Set<Point>> e1,
+                                  Map.Entry<Line, Set<Point>> e2) {
+                 if (e1 != null && e2 != null) {
+                   return Integer.compare(e1.getValue().size(),
+                                          e2.getValue().size());
+                 }
+                 return (e1 != null ? 1 : -1);
+               }
+             })
         .getKey();
   }
   //@exclude

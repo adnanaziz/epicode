@@ -1,58 +1,9 @@
-/*
-   @slug
-   is-binary-tree-balanced
-
-   @title
-   Test if a binary tree is balanced.
-
-   @problem
-   A binary tree is said to be balanced if for each node in the tree,
-   the difference in the height of its left and right subtrees is at most one.
-   A perfect binary tree is balanced, as is a complete binary tree.
-   A balanced binary tree does not have to be perfect or complete---see the
-   figure for an example.
-   <p>
-
-   Write a program that takes as input the root of a binary tree
-   and checks whether the tree is balanced.
-   <p>
-
-   The binary tree class is
-
-<pre>
-   class BinaryTreeNode<T> {
-       public T data;
-       public BinaryTreeNode<T> left, right;
-   }
-
-   public BinaryTreeNode(T data) { this.data = data; }
-
-   public BinaryTreeNode(T data, BinaryTreeNode<T> left,
-                          BinaryTreeNode<T> right) {
-     this.data = data;
-     this.left = left;
-     this.right = right;
-   }
-</pre>
-<p>
-
-
-   <img src="/binary-tree.png"></img>
-
-   @hint
-   Think of a classic binary tree algorithm.
-
-*/
-
 package com.epi;
 
 import com.epi.BinaryTreePrototypeTemplate.BinaryTreeNode;
 
 public class BalancedBinaryTree {
-  // @pg_include:BinaryTreePrototypeTemplate.java
   // @include
-  // @pg_end
-  // @pg_impl
   private static class BalanceStatusWithHeight {
     public boolean balanced;
     public int height;
@@ -62,20 +13,11 @@ public class BalancedBinaryTree {
       this.height = height;
     }
   }
-  // @pg_end
 
-  // @judge-include-display
-  // @pg_skeleton
   public static boolean isBalanced(BinaryTreeNode<Integer> tree) {
-    // @judge-exclude-display
-    // @pg_impl:1
     return checkBalanced(tree).balanced;
-    // @judge-include-display
   }
-  // @pg_end
-  // @judge-exclude-display
 
-  // @pg_impl
   private static BalanceStatusWithHeight checkBalanced(
       BinaryTreeNode<Integer> tree) {
     if (tree == null) {
@@ -95,10 +37,8 @@ public class BalancedBinaryTree {
     int height = Math.max(leftResult.height, rightResult.height) + 1;
     return new BalanceStatusWithHeight(isBalanced, height);
   }
-  // @pg_end
   // @exclude
 
-  // @pg_ignore
   public static void main(String[] args) {
     // balanced binary tree test
     // 3
@@ -123,4 +63,3 @@ public class BalancedBinaryTree {
     }
   }
 }
-

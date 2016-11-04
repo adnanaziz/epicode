@@ -1,58 +1,12 @@
-/*
-    @slug
-    is-binary-tree-a-bst
-
-    @title
-    Test if a binary tree satisfies the BST property
-
-    @problem
-    Write a program that takes as input a binary tree
-    and checks if the tree satisfies the BST property.
-    See the figure for an example of a BST.
-    <p>
-    <img src="/bst-example.png" width="400px"></img>
-
-  The binary tree class is
-
-<pre>
-   class BinaryTreeNode<T> {
-       public T data;
-       public BinaryTreeNode<T> left, right;
-   }
-
-   public BinaryTreeNode(T data) { this.data = data; }
-
-   public BinaryTreeNode(T data, BinaryTreeNode<T> left,
-                          BinaryTreeNode<T> right) {
-     this.data = data;
-     this.left = left;
-     this.right = right;
-   }
-</pre>
-
-<p>
-
-
-    @hint
-    Is it correct to check for each node that its key is greater
-   than or equal to the key at its left child and less than or equal to the key
-   at its right child?
-
- */
-
 package com.epi;
 
 import com.epi.BinaryTreePrototypeTemplate.BinaryTreeNode;
 
 public class IsBinaryTreeABST {
   // @include
-  // @judge-include-display
   public static boolean isBinaryTreeBST(BinaryTreeNode<Integer> tree) {
-    // @judge-exclude-display
     return areKeysInRange(tree, Integer.MIN_VALUE, Integer.MAX_VALUE);
-    // @judge-include-display
   }
-  // @judge-exclude-display
 
   private static boolean areKeysInRange(BinaryTreeNode<Integer> tree,
                                         Integer lower, Integer upper) {

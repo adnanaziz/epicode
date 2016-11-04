@@ -1,10 +1,10 @@
 // Copyright (c) 2015 Elements of Programming Interviews. All rights reserved.
 
 #include <array>
+#include <cassert>
 #include <iostream>
 #include <random>
 #include <stack>
-#include <cassert>
 
 using std::array;
 using std::cout;

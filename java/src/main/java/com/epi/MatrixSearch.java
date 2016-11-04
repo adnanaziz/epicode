@@ -1,6 +1,5 @@
 package com.epi;
 
-// @pg_import:5
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -9,9 +8,7 @@ import java.util.Random;
 
 public class MatrixSearch {
   // @include
-  // @pg_skeleton
   public static boolean matrixSearch(List<List<Integer>> A, int x) {
-    // @pg_impl
     int row = 0, col = A.get(0).size() - 1; // Start from the top-right corner.
     // Keeps searching while there are unclassified rows and columns.
     while (row < A.size() && col >= 0) {
@@ -24,9 +21,7 @@ public class MatrixSearch {
       }
     }
     return false;
-    // @pg_end
   }
-  // @pg_end
   // @exclude
 
   // O(n^2) solution for verifying answer.

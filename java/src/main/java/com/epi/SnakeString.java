@@ -3,10 +3,8 @@ package com.epi;
 import java.util.Random;
 
 public class SnakeString {
-  // @pg_skeleton
   // @include
   public static String snakeString(String s) {
-    // @pg_impl
     StringBuilder result = new StringBuilder();
     // Outputs the first row, i.e., s[1], s[5], s[9], ...
     for (int i = 1; i < s.length(); i += 4) {
@@ -21,11 +19,8 @@ public class SnakeString {
       result.append(s.charAt(i));
     }
     return result.toString();
-    // @pg_end
   }
-  // @pg_end
   // @exclude
-
 
   private static String randString(int len) {
     Random r = new Random();

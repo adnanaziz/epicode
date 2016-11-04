@@ -46,8 +46,7 @@ public class GeneratingABSqrt2 {
   }
   // @exclude
 
-  private static void simpleTest() {
-    List<ABSqrt2> ans = generateFirstKABSqrt2(8);
+  private static void simpleTest(List<ABSqrt2> ans) {
     assert(0.0 == ans.get(0).val);
     assert(1.0 == ans.get(1).val);
     assert(Math.sqrt(2.0) == ans.get(2).val);
@@ -58,7 +57,15 @@ public class GeneratingABSqrt2 {
     assert(2.0 + Math.sqrt(2.0) == ans.get(7).val);
   }
 
+  private static void check(List<ABSqrt2> ans, int k) {
+    assert ans.size() == k;
+    for (int i = 1; i < ans.size(); ++i) {
+      assert ans.get(i).val >= ans.get(i - 1).val;
+    }
+  }
+
   public static void main(String[] args) {
+    simpleTest(generateFirstKABSqrt2(8));
     Random r = new Random();
     for (int times = 0; times < 1000; ++times) {
       int k;
@@ -67,13 +74,12 @@ public class GeneratingABSqrt2 {
       } else {
         k = r.nextInt(10000) + 1;
       }
-      List<ABSqrt2> ans = generateFirstKABSqrt2(k);
-      for (int i = 0; i < ans.size(); ++i) {
-        System.out.println(ans.get(i).a + " " + ans.get(i).b + " "
-                           + ans.get(i).val);
-        if (i > 0) {
-          assert(ans.get(i).val >= ans.get(i - 1).val);
-        }
+      List<ABSqrt2> ans1 = generateFirstKABSqrt2(k);
+      check(ans1, k);
+      List<ABSqrt2> ans2 = GeneratingABSqrt2Improved.generateFirstKABSqrt2(k);
+      check(ans2, k);
+      for (int i = 0; i < k; ++i) {
+        assert ans1.get(i).val == ans2.get(i).val;
       }
     }
   }

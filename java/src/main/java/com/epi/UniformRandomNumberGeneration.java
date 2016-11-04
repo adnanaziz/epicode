@@ -36,7 +36,7 @@ public class UniformRandomNumberGeneration {
       int x = uniformRandom(a, b);
       System.out.println(String.format("a = %d, b = %d", a, b));
       System.out.println(String.format("random result = %d", x));
-      assert x >= a&& x <= b;
+      assert x >= a && x <= b;
     }
   }
 }

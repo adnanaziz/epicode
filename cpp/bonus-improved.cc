@@ -6,8 +6,8 @@
 #include <numeric>
 #include <random>
 #include <string>
-#include <vector>
 #include <utility>
+#include <vector>
 
 using std::cout;
 using std::default_random_engine;

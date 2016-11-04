@@ -26,7 +26,8 @@ class Team {
     vector<Player> A_sorted(A.SortPlayersByHeight());
     vector<Player> B_sorted(B.SortPlayersByHeight());
     for (int i = 0; i < A_sorted.size() && i < B_sorted.size(); ++i) {
-      if (B_sorted[i] < A_sorted[i]) {
+      if (!(A_sorted[i] < B_sorted[i])) {
+        // A_sorted[i] cannot be placed behind B_sorted[i].
         return false;
       }
     }
@@ -57,5 +58,9 @@ int main(int argc, char* argv[]) {
          !Team::valid_placement_exists(t1, t3) &&
          Team::valid_placement_exists(t3, t2) &&
          !Team::valid_placement_exists(t1, t2));
+  height = {1, 4, 2};
+  Team t4(height);
+  assert(!Team::valid_placement_exists(t4, t3));
+  assert(!Team::valid_placement_exists(t3, t4));
   return 0;
 }

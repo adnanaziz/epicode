@@ -1,7 +1,7 @@
 // Copyright (c) 2015 Elements of Programming Interviews. All rights reserved.
 
-#include <iostream>
 #include <cassert>
+#include <iostream>
 #include <limits>
 #include <queue>
 #include <random>

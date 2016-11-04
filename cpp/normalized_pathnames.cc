@@ -3,12 +3,10 @@
 #include <algorithm>
 #include <cassert>
 #include <iostream>
+#include <sstream>
 #include <stdexcept>
 #include <string>
-#include <sstream>
 #include <vector>
-
-#include "test_toolkit/main_def.h"
 
 using std::cout;
 using std::endl;
@@ -19,9 +17,7 @@ using std::string;
 using std::vector;
 
 // @include
-// @pg_skeleton
 string ShortestEquivalentPath(const string& path) {
-  // @pg_impl
   if (path.empty()) {
     throw invalid_argument("Empty string is not a valid path.");
   }
@@ -61,12 +57,10 @@ string ShortestEquivalentPath(const string& path) {
     }
   }
   return result;
-  // @pg_end
 }
-// @pg_end
 // @exclude
-// @pg_ignore
-int MAIN_FUNC(int argc, char* argv[]) {
+
+int main(int argc, char* argv[]) {
   assert(ShortestEquivalentPath("123/456") == string("123/456"));
   assert(ShortestEquivalentPath("/123/456") == string("/123/456"));
   assert(ShortestEquivalentPath("usr/lib/../bin/gcc") ==
@@ -103,4 +97,3 @@ int MAIN_FUNC(int argc, char* argv[]) {
   }
   return 0;
 }
-// @pg_end

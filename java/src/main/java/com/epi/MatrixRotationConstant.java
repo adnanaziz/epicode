@@ -12,8 +12,8 @@ public class MatrixRotationConstant {
       for (int j = i; j < squareMatrix.size() - i - 1; ++j) {
         // Perform a 4-way exchange.
         int temp = squareMatrix.get(i).get(j);
-        squareMatrix.get(i)
-            .set(j, squareMatrix.get(squareMatrix.size() - 1 - j).get(i));
+        squareMatrix.get(i).set(
+            j, squareMatrix.get(squareMatrix.size() - 1 - j).get(i));
         squareMatrix.get(squareMatrix.size() - 1 - j)
             .set(i, squareMatrix.get(squareMatrix.size() - 1 - i)
                         .get(squareMatrix.size() - 1 - j));

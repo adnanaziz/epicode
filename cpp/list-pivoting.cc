@@ -22,9 +22,9 @@ shared_ptr<ListNode<int>> ListPivoting(const shared_ptr<ListNode<int>>& L,
   // Populates the three lists.
   shared_ptr<ListNode<int>> iter = L;
   while (iter) {
-    AppendNode(&iter, iter->data < x ? &less_iter : iter->data == x
-                                                        ? &equal_iter
-                                                        : &greater_iter);
+    AppendNode(&iter, iter->data < x
+                          ? &less_iter
+                          : iter->data == x ? &equal_iter : &greater_iter);
   }
   // Combines the three lists.
   greater_iter->next = nullptr;
